@@ -18,6 +18,6 @@ class LoginController extends Controller
             return redirect('/dashboard');
         }
 
-        return back()->withErrors(['error' => 'Whoops! Please try to login again.']);
+        return back()->withErrors('Whoops! Please try to login again.');
     }
 }
