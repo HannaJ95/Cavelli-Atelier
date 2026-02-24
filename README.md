@@ -60,40 +60,68 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ---
 
-## Local Development Setup
+## Installation Guide
 
-### Database Setup
+### Prerequisites
 
-1. Log in to MySQL:
+- PHP 8.2+
+- Composer
+- MySQL
+
+### Setup Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/HannaJ95/Cavelli-Atelier.git
+   cd Cavelli-Atelier
+   ```
+
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Copy environment file**
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Generate application key**
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Create the database**
    ```bash
    mysql -u root
    ```
-
-2. Create the database:
    ```sql
    CREATE DATABASE cavelli_atelier;
+   EXIT;
    ```
 
-3. Verify it was created:
-   ```sql
-   SHOW DATABASES;
+6. **Configure your `.env` file**
+   
+   Open `.env` and update the database settings:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=cavelli_atelier
+   DB_USERNAME=root
+   DB_PASSWORD=
    ```
 
-### Environment Configuration
+7. **Run migrations and seeders**
+   ```bash
+   php artisan migrate --seed
+   ```
 
-Update your `.env` file with these database settings:
+8. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=cavelli_atelier
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-### Run Migrations
-
-```bash
-php artisan migrate
-```
+9. **Visit the application**
+    
+    Open [http://localhost:8000](http://localhost:8000) in your browser.
