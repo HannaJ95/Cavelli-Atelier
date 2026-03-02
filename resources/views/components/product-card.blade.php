@@ -1,13 +1,15 @@
 @props(['product']);
 
-<div>
-    <input type="checkbox" name="select_products[]" value="{{ $product->id }}" />
-    <div>
-        @if ($product->image)
-            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" />
-        @else
-        <i>icon</i>
-        @endif
+<div class="flex item-center border border-gray-200 rounded-2xl">
+    <div class="flex items-center gap-4">
+        <input type="checkbox" name="select_products[]" value="{{ $product->id }}" class="rounded border-gray-300"/>
+        <div>
+            @if ($product->image)
+                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" />
+            @else
+            <i>icon</i>
+            @endif
+        </div>
     </div>
     <div class="border"></div>
     <div class="container">

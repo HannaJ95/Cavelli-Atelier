@@ -1,26 +1,10 @@
-{{-- <aside>
-    <h1>Cavelli Atilier</h1>
-    <h2>Overview</h2>
-    <div>
-        <h2>Products</h2>
-        <div>
-            <h3>New Product</h3>
-            <h3>Edit Product</h3>
-        </div>
-        <h2>Attribut</h2>
-        <div>
-            <h3>Colors</h3>
-            <h3>Materials</h3>
-            <h3>Rooms</h3>
-        </div>
+@extends('layouts.app')
 
-    </div>
-    
-    <h3></h3>
-</aside> --}}
+@section('title', 'Products - Cavelli Atelier')
 
+@section('content')
 <main>
-    <section class="search">
+    <section class="flex items-center justify-between">
         <form method="get" action="/products">
             @csrf
             <h1>Products</h1>
@@ -52,7 +36,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('products.create') }}">
+                {{-- <a href="{{ route('products.create') }}"> --}}
                     <span class="text-xl">+</span> Add new product
                 </a>
                 <hr>
@@ -60,7 +44,7 @@
             <div>
                 <label class="font-bold">Product type</label>
                 <div>
-                    <select name="type">
+                    <select name="product-type">
                         <option>Show: All products</option>
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -112,3 +96,4 @@
         </div>
     </section>
 </main>
+@endsection
