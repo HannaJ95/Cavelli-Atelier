@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductTypeSeeder::class,
             ColorSeeder::class,
+            MaterialSeeder::class,
             ProductSeeder::class,
         ]);
 
