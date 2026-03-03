@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 
 Route::view('/', 'index')->name('login');
 
 Route::post('login', LoginController::class);
+Route::post('logout', LogoutController::class)->middleware('auth')->name('logout');
 Route::get('overview', DashboardController::class)->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
