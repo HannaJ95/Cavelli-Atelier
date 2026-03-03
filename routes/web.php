@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 Route::view('/', 'index')->name('login');
 
 Route::post('login', LoginController::class);
-Route::get('dashboard', DashboardController::class)->middleware('auth');
+Route::get('overview', DashboardController::class)->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');

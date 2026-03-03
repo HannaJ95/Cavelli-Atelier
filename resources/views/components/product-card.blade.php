@@ -1,13 +1,13 @@
 @props(['product'])
 
-<div class="relative flex items-center bg-gray-100 border border-gray-300 rounded-2xl shadow-sm mb-4 m-10 p-6 gap-6 min-h-[160px]">
+<div class="relative flex items-center bg-gray-100 border border-gray-300 rounded-2xl shadow-sm mb-4 p-6 gap-6 min-h-[160px]">
     <div class="absolute top-4 left-4">
         <input type="checkbox" name="select_products[]" value="{{ $product->id }}" 
             class="w-6 h-6 rounded border-gray-300 cursor-pointer transition-all" />
     </div>
 
     <div class="flex item-center ml-4">
-        <div class="w-32 h-32 bg-gray-50 rounded-xl border border-gray-100 overflow-hidden flex items-center justify-center">
+        <div class="w-32 h-32 rounded-xl border border-gray-100 overflow-hidden flex items-center justify-center">
             @if ($product->image)
                 <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="object-cover w-full h-full" />
             @else
