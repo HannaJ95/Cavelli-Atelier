@@ -28,4 +28,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Color::class);
     }
+
+    public function materials()
+    {
+        return $this->belongsToMany(Material::class);
+    }
 }
