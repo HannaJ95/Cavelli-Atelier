@@ -2,7 +2,7 @@
 
 <aside class="sticky top-0 h-screen w-64 bg-[#a8c69f] p-8 flex flex-col gap-10 overflow-y-auto">
     <div class="border-b border-gray-800/20 pb-4">
-        <h1 class="text-3xl font-serif tracking-tight text-gray-900">
+        <h1 class="text-3xl font-serif tracking-tight text-gray-900 mt-4">
             Cavelli Atilier
         </h1>
     </div>
