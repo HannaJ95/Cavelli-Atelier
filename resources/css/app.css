@@ -9,3 +9,11 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/*** VIEW: create ***/
+.form-label {
+    @apply block text-sm text-gray-600 mb-1;
+}
+.input-field {
+    @apply w-full border border-gray-200 rounded-lg px-3 py-2 bg-gray-50;
+}
