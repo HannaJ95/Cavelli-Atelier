@@ -14,7 +14,7 @@ class MaterialController extends Controller
     {
         $materials = Material::paginate(12);
 
-        return view('materials.index', compact('materials'));
+        return view('attributes.materials.index', compact('materials'));
     }
 
     /**
@@ -22,7 +22,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view('materials.create');
+        return view('attributes.materials.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class MaterialController extends Controller
      */
     public function show(Material $material)
     {
-        return view('materials.show', compact('material'));
+        return view('attributes.materials.show', compact('material'));
     }
 
     /**
@@ -52,7 +52,7 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        return view('materials.edit', compact('material'));
+        return view('attributes.materials.edit', compact('material'));
     }
 
     /**
