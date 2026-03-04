@@ -43,7 +43,8 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('products.create') }}" class="bg-[#8eb88e] hover:bg-[#7a9e7a] text-white px-4 py-2.5 rounded-full flex items-center gap-2 transition-colors">
+                        <a href="{{ route('products.create') }}" 
+                            class="bg-[#8eb88e] hover:bg-[#7a9e7a] text-white px-4 py-2.5 rounded-full flex items-center gap-2 transition-colors">
                             <span class="text-xl">+</span> Add new product
                         </a>
                     </div>

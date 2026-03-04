@@ -72,8 +72,9 @@
                                         <form action="{{ route('colors.destroy', $color->id) }}" method="POST" onsubmit="return confirm('Delete this color?')">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                            <button class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer">
                                                 <i class="fa fa-trash text-xl"></i>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
