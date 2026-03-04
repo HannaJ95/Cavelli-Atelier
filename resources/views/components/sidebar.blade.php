@@ -30,8 +30,8 @@
                 <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200"></i>
             </button>
             <div class="sub-menu hidden mt-4 ml-4 flex flex-col gap-3 text-lg text-gray-800">
-                <a href="#" class="hover:underline">Colors</a>
-                <a href="#" class="hover:underline">Materials</a>
+                <a href="{{ route('colors.index') }}" class="hover:underline">Colors</a>
+                <a href="{{ route('materials.index') }}" class="hover:underline">Materials</a>
                 <a href="#" class="hover:underline">Rooms</a>
             </div>
             
