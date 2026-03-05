@@ -16,9 +16,9 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(12);
+        $products = Product::with('materials', 'colors', 'productType')->paginate(12);
         $types = ProductType::all();
-        $materials = Color::all();
+        $materials = Material::all();
 
         return view('products', [
             'products' => $products,

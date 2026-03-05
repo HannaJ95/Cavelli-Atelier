@@ -36,7 +36,13 @@
         <div class="flex flex-col justify-between">
             <div>
                 <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Material</p>
-                <p class="font-medium text-gray-800">{{ $product->material ?? 'N/A' }}</h3>
+                <p class="font-medium text-gray-800">
+                    @if($product->materials->count() > 0)
+                        {{ $product->materials->pluck('name')->join(', ') }}
+                    @else
+                        N/A
+                    @endif
+                </p>
             </div>
             <div class="mt-4">
                 <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Dimentions (H x W)</p>
