@@ -10,9 +10,23 @@ class ColorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $colors = Color::paginate(12);
+        $query = Color::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where('name', 'LIKE', "%{$search}%");
+        }
+
+        if ($request->filled('sort')) {
+            $direction = $request->sort === 'name_asc' ? 'asc' : 'desc';
+            $query->orderBy('name', $direction);
+        } else {
+            $query->orderBy('name', 'asc');
+        }
+
+        $colors = $query->paginate(12)->withQueryString();
 
         return view('attributes.colors.index', compact('colors'));
     }

@@ -42,6 +42,10 @@
                                     <i class="fa fa-chevron-down text-sm" aria-hidden="true"></i>
                                 </div>
                             </div>
+                            <a href="{{ route('colors.index') }}" 
+                                class="text-sm text-gray-500 hover:text-gray-700 underline">
+                                Reset
+                            </a>
                         </div>
                     </form>
                 </div>
@@ -67,20 +71,20 @@
                                     </div>
                                     <div class="flex items-center justify-end gap-4">
                                         <a href="" class="text-gray-400 hover:text-[#8eb88e] transition-colors">
-                                            <i class="fa fa-edit text-xl"></i>
+                                            <i class="fa fa-edit text-3xl"></i>
                                         </a>
                                         <form action="{{ route('colors.destroy', $color->id) }}" method="POST" onsubmit="return confirm('Delete this color?')">
                                             @csrf
                                             @method('DELETE')
                                             <button class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer">
-                                                <i class="fa fa-trash text-xl"></i>
+                                                <i class="fa fa-trash text-3xl"></i>
                                             </button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         @empty
-                            <div class="text-center p-20 bg-white rounded-2xl border border-gray-200">
+                            <div class="text-center p-20 bg-white rounded-2xl border border-gray-200 col-span-full">
                                 <p class="text-gray-500 italic">No colors found. Start by adding a new one!</p>
                             </div>
                         @endforelse
