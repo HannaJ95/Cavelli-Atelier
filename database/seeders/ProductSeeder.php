@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Color;
+use App\Models\Material;
 use App\Models\Product;
 use App\Models\ProductType;
 
@@ -46,11 +48,14 @@ class ProductSeeder extends Seeder
         ];
 
 
+        $allColors = Color::all();
+        $allMaterials = Material::all();
+
         foreach ($data as $typeName => $products) {
             $type = ProductType::where('name', $typeName)->first();
             if ($type) {
                 foreach ($products as $product) {
-                    Product::create([
+                    $created = Product::create([
                         'product_type_id' => $type->id,
                         'name' => $product['name'],
                         'description' => $product['desc'],
@@ -60,6 +65,9 @@ class ProductSeeder extends Seeder
                         'length' => $product['length'],
                         'weight' => $product['weight'],
                     ]);
+
+                    $created->colors()->attach($allColors->random(rand(1, 3))->pluck('id'));
+                    $created->materials()->attach($allMaterials->random(rand(1, 3))->pluck('id'));
                 }
             }
         }
