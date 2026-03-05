@@ -22,7 +22,6 @@ class ProductFactory extends Factory
             'product_type_id' => fake()->randomElement(ProductType::pluck('id')),
             'name' => ucfirst($name),
             'description' => fake()->sentence(),
-            'material' => fake()->randomElement(['Oak', 'Velvet', 'Steel', 'Marble']),
             'price' => fake()->randomFloat(2, 10, 1000),
             'size' => fake()->numberBetween(40, 200) . "x" . $this->faker->numberBetween(40, 100) . "cm",
             'weight' => fake()->randomFloat(2, 0.1, 100),

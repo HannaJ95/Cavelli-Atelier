@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('product_type_id')->constrained()->onDelete('cascade');
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->string('material')->nullable();
             $table->decimal('price', 8, 2)->nullable();
             $table->string('size')->nullable();
             $table->decimal('weight', 8, 2);
