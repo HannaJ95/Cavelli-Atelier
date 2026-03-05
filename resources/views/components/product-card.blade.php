@@ -50,6 +50,11 @@
         <div>
             <p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Description</p>
             <p class="font-medium text-gray-800">{{ Str::limit($product->description, 180) }}</p>
+
+            <a href="{{ route('products.edit', $product) }}" class="bg-[#8eb88e] hover:bg-[#7a9e7a] text-white px-4 py-2.5 rounded-full flex items-center gap-2 transition-colors">
+                <span class="text-xl">+</span> Update Product
+            </a>
+            
         </div>
     </div>
 </div>
