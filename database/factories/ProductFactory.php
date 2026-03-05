@@ -23,7 +23,9 @@ class ProductFactory extends Factory
             'name' => ucfirst($name),
             'description' => fake()->sentence(),
             'price' => fake()->randomFloat(2, 10, 1000),
-            'size' => fake()->numberBetween(40, 200) . "x" . $this->faker->numberBetween(40, 100) . "cm",
+            'height' => fake()->numberBetween(40, 200),
+            'width' => fake()->numberBetween(40, 200),
+            'length' => fake()->numberBetween(40, 200),
             'weight' => fake()->randomFloat(2, 0.1, 100),
         ];
     }

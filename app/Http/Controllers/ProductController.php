@@ -50,14 +50,15 @@ class ProductController extends Controller
             'weight'          => 'nullable|numeric',
         ]);
 
-        $size = $request->height . 'x' . $request->width . 'x' . $request->length;
 
         $product = Product::create([
             'name'            => $validated['name'],
             'description'     => $validated['description'],
             'product_type_id' => $validated['product_type_id'],
             'price'           => $validated['price'],
-            'size'            => $size,
+            'height'          => $validated['height'],
+            'width'          => $validated['width'],
+            'length'          => $validated['length'],
             'weight'          => $validated['weight'],
         ]);
 

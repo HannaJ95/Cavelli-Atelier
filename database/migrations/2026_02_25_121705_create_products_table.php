@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2)->nullable();
-            $table->string('size')->nullable();
+            $table->string('height')->nullable();
+            $table->string('width')->nullable();
+            $table->string('length')->nullable();
             $table->decimal('weight', 8, 2);
             $table->timestamps();
         });
