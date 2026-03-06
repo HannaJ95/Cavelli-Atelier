@@ -122,8 +122,8 @@
                 @forelse ($products as $product)
                     <x-product-card :product="$product" />
                 @empty
-                    <div>
-                        <p>No furniture matches your search. Try adjusting the filters!</p>
+                    <div class="text-center p-20 bg-white rounded-2xl border border-gray-200">
+                        <p class="text-gray-500 italic">No furniture matches your search. Try adjusting the filters!</p>
                     </div>
                 @endforelse
 
