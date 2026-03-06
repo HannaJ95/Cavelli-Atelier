@@ -74,24 +74,14 @@ class ProductController extends Controller
             'name'            => 'required|string|max:255|unique:products',
             'description'     => 'nullable|string',
             'product_type_id' => 'required|exists:product_types,id',
-            'price'           => 'required|numeric|min:0',
-            'height'          => 'nullable|numeric',
-            'width'           => 'nullable|numeric',
-            'length'          => 'nullable|numeric',
-            'weight'          => 'nullable|numeric',
+            'price'           => 'required|numeric|min:0.01|max:99999999.99',
+            'height'          => 'nullable|integer|min:0|max:100000',
+            'width'           => 'nullable|integer|min:0|max:100000',
+            'length'          => 'nullable|integer|min:0|max:100000',
+            'weight'          => 'nullable|numeric|min:0|max:999999.99',
         ]);
 
-
-        $product = Product::create([
-            'name'            => $validated['name'],
-            'description'     => $validated['description'],
-            'product_type_id' => $validated['product_type_id'],
-            'price'           => $validated['price'],
-            'height'          => $validated['height'],
-            'width'          => $validated['width'],
-            'length'          => $validated['length'],
-            'weight'          => $validated['weight'],
-        ]);
+        $product = Product::create($validated);
 
         $product->colors()->sync($request->input('colors', []));
         $product->materials()->sync($request->input('materials', []));
@@ -115,11 +105,11 @@ class ProductController extends Controller
             'name'            => 'required|string|max:255|unique:products,name,' . $product->id,
             'description'     => 'nullable|string',
             'product_type_id' => 'required|exists:product_types,id',
-            'price'           => 'required|numeric|min:0',
-            'height'          => 'nullable|numeric',
-            'width'           => 'nullable|numeric',
-            'length'          => 'nullable|numeric',
-            'weight'          => 'nullable|numeric',
+            'price'           => 'required|numeric|min:0.01|max:99999999.99',
+            'height'          => 'nullable|integer|min:0|max:100000',
+            'width'           => 'nullable|integer|min:0|max:100000',
+            'length'          => 'nullable|integer|min:0|max:100000',
+            'weight'          => 'nullable|numeric|min:0|max:999999.99',
         ]);
 
         $product->update($validated);

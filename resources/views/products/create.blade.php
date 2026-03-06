@@ -36,7 +36,7 @@
                                 {{-- product name --}}
                                 <div>
                                     <label class="form-label" for="name">Product Name:</label>
-                                    <input class="input-field" type="text" id="name" name="name" value="{{ old('name') }}">
+                                    <input class="input-field" type="text" id="name" name="name" required maxlength="255" value="{{ old('name') }}">
                                     @error('name')
                                     <p>{{ $message }}</p>
                                     @enderror
@@ -64,25 +64,25 @@
                                         {{-- height --}}
                                         <div class="flex flex-col min-w-28 flex-1">
                                             <label class="whitespace-nowrap text-sm text-gray-500 mb-1" for="height">Height (mm):</label>
-                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="height" name="height" value="{{ old('height') }}" placeholder="H:">
+                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="height" name="height" min="0" max="100000" value="{{ old('height') }}" placeholder="H:">
                                         </div>
 
                                         {{-- width --}}
                                         <div class="flex flex-col min-w-28 flex-1">
                                             <label class="whitespace-nowrap text-sm text-gray-500 mb-1" for="width">Width (mm):</label>
-                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="width" name="width" value="{{ old('width') }}" placeholder="W:">
+                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="width" name="width" min="0" max="100000" value="{{ old('width') }}" placeholder="W:">
                                         </div>
 
                                         {{-- length --}}
                                         <div class="flex flex-col min-w-28 flex-1">
                                             <label class="whitespace-nowrap text-sm text-gray-500 mb-1" for="length">Length (mm):</label>
-                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="length" name="length" value="{{ old('length') }}" placeholder="L:">
+                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="length" name="length" min="0" max="100000" value="{{ old('length') }}" placeholder="L:">
                                         </div>
 
                                         {{-- weight --}}
                                         <div class="flex flex-col min-w-28 flex-1">
                                             <label class="whitespace-nowrap text-sm text-gray-500 mb-1" for="weight">Weight (kg):</label>
-                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="weight" name="weight" value="{{ old('weight') }}" placeholder="WT:">
+                                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight') }}" placeholder="WT:">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -119,7 +119,7 @@
 
                                 <div>
                                     <label class="form-label" for="product_type_id">Product Sub-Category:</label>
-                                    <select id="product_type_id" name="product_type_id">
+                                    <select id="product_type_id" name="product_type_id" required>
                                         <option value="">-- Select type --</option>
                                         @foreach ($productTypes as $type)
                                         <option value="{{ $type->id }}"
@@ -143,9 +143,9 @@
 
                                 <div>
                                     <label class="form-label" for="price">Price (kr)</label>
-                                    <input class="input-field" type="number" id="price" name="price" step="0.01" value="{{ old('price') }}">
+                                    <input class="input-field" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" value="{{ old('price') }}">
                                     @error('price')
-                                    <p>{{ $message }}</p>
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                                     @enderror
                                 </div>
 
