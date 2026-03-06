@@ -84,7 +84,7 @@
             </a> --}}
         </div>
         <div class="flex flex-col items-center justify-center gap-10">
-            <a href="" class="text-gray-400 hover:text-[#8eb88e] transition-colors">
+            <a href="{{ route('products.edit', $product) }}" class="text-gray-400 hover:text-[#8eb88e] transition-colors">
                 <i class="fa fa-edit text-3xl"></i>
             </a>
             <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Delete this product?')">
