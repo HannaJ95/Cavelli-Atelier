@@ -4,6 +4,14 @@
 
 @section('content')
 
+    {{-- breadcrumbs --}}
+    <x-breadcrumbs :links="[
+        ['label' => 'Overview', 'url' => route('dashboard')],
+        ['label' => 'Products', 'url' => route('products.index')],
+        ['label' => $product->name, 'url' => route('products.edit', $product)],
+        ['label' => 'Edit'],
+    ]" />
+
     {{-- Rubrik + knappar --}}
     <div class="flex m-10 mb-px justify-between items-center">
         <h1 class="font-semibold text-lg">Edit Product</h1>
