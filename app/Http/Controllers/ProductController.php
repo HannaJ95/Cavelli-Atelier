@@ -60,10 +60,10 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $productTypes = ProductType::all();
-        $colors = Color::all();
-        $materials = Material::all();
+        $categories = Category::orderBy('name')->get();
+        $productTypes = ProductType::orderBy('name')->get();
+        $colors = Color::orderBy('name')->get();
+        $materials = Material::orderBy('name')->get();
 
         return view('products.create', compact('categories', 'productTypes', 'colors', 'materials'));
     }
@@ -72,7 +72,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name'            => 'required|string|max:255|unique:products',
-            'description'     => 'nullable|string',
+            'description'     => 'nullable|string|max:2000',
             'product_type_id' => 'required|exists:product_types,id',
             'price'           => 'required|numeric|min:0.01|max:99999999.99',
             'height'          => 'nullable|integer|min:0|max:100000',
@@ -86,15 +86,15 @@ class ProductController extends Controller
         $product->colors()->sync($request->input('colors', []));
         $product->materials()->sync($request->input('materials', []));
 
-        return redirect()->route('products.index')->with('success', 'Product added!');
+        return redirect()->route('products.create')->with('success', 'Product added!');
     }
 
     public function edit(Product $product)
     {
-        $categories = Category::all();
-        $productTypes = ProductType::all();
-        $colors = Color::all();
-        $materials = Material::all();
+        $categories = Category::orderBy('name')->get();
+        $productTypes = ProductType::orderBy('name')->get();
+        $colors = Color::orderBy('name')->get();
+        $materials = Material::orderBy('name')->get();
 
         return view('products.edit', compact('product', 'categories', 'productTypes', 'colors', 'materials'));
     }
@@ -103,7 +103,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'name'            => 'required|string|max:255|unique:products,name,' . $product->id,
-            'description'     => 'nullable|string',
+            'description'     => 'nullable|string|max:2000',
             'product_type_id' => 'required|exists:product_types,id',
             'price'           => 'required|numeric|min:0.01|max:99999999.99',
             'height'          => 'nullable|integer|min:0|max:100000',
@@ -116,7 +116,7 @@ class ProductController extends Controller
         $product->colors()->sync($request->input('colors', []));
         $product->materials()->sync($request->input('materials', []));
 
-        return redirect()->route('products.index')->with('success', 'Product updated!');
+        return redirect()->route('products.edit', $product)->with('success', 'Product updated!');
     }
 
     public function destroy(Product $product)
