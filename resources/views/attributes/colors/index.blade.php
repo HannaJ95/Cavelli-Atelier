@@ -48,7 +48,7 @@
                     :items="$colors"
                     mode="color"
                     :columns="2"
-                    :columns2="3"
+                    :columns2="1"
                 />
 
             </div>
