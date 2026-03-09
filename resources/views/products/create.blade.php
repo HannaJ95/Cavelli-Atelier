@@ -4,6 +4,13 @@
 
 
 @section('content')
+
+    {{-- breadcrumbs --}}
+    <x-breadcrumbs :links="[
+        ['label' => 'Overview', 'url' => route('dashboard')],
+        ['label' => 'Products', 'url' => route('products.index')],
+        ['label' => 'Add New Product'],
+    ]" />
         
     <form method="POST" action="{{ route('products.store') }}">
         @csrf
