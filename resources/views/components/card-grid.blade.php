@@ -19,7 +19,7 @@
     <div class="grid grid-cols-1 {{ $gridCols }} gap-4 lg:gap-6">
 
         @forelse ($items as $item)
-            <article class="relative flex items-start bg-gray-100 border border-gray-300 rounded-lg shadow-sm
+            <article class="relative flex items-start bg-gray-100 border border-gray-300 rounded-2xl shadow-sm
                         p-3 lg:p-6
                         gap-3 lg:gap-6
                         min-w-0">
@@ -78,8 +78,8 @@
             </article>
 
         @empty
-            <div class="text-center p-20 bg-white rounded-2xl border border-gray-200 col-span-full">
-                <p class="text-gray-500 italic">No {{ $mode }}s found. Start by adding a new one!</p>
+            <div class="text-center p-20 bg-gray-100 rounded-2xl border border-red-500 col-span-full">
+                <p class="text-gray-500 italic">No {{ $mode }}s found. Change your search or add a new one!</p>
             </div>
         @endforelse
 

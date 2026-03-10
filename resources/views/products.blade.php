@@ -20,7 +20,7 @@
                         <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </span>
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search" maxlength="50" aria-label="Search products by name"
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search product..." maxlength="50" aria-label="Search products by name"
                             class="w-full bg-gray-200 rounded-full py-2.5 pl-11 pr-12 text-sm font-medium" />
                     </div>
 
@@ -48,8 +48,8 @@
                         </div>
                     </div>
 
-                    <a href="{{ route('products.create') }}" role="button" a
-                    ria-label="Add a new product"
+                    <a href="{{ route('products.create') }}" role="button" 
+                        aria-label="Add a new product"
                         class="btn-primary">
                         <span class="text-xl leading-none">+</span> Add new product
                     </a>
@@ -63,7 +63,7 @@
                         <label class="font-bold text-gray-800 text-sm ml-4">Product type</label>
                         <div class="relative">
                             <select name="type" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
-                            aria-label="Filter products by type">
+                                aria-label="Filter products by type">
                                 <option value="">Show: All types</option>
                                 @foreach ($types as $type)
                                     <option value="{{ $type->id }}" {{ request('type') == $type->id ? 'selected' : '' }}>

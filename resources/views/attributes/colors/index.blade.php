@@ -17,7 +17,7 @@
 
                 
             
-                <div class="bg-gray-100 border border-gray-300 shadow-sm rounded-lg p-10 pb-4 mb-6">
+                <div class="bg-gray-100 border border-gray-300 shadow-sm rounded-2xl p-10 pb-4 mb-6">
                     <h1 class="font-semibold text-lg p-4">Colors</h1>
                     <div class="flex items-center gap-4 mb-6">
                         <a href=""  role="button" aria-label="Add a new color"
