@@ -12,14 +12,14 @@
                 {{-- product name --}}
                 <div>
                     <label class="form-label" for="name">Product Name:</label>
-                    <input class="input-field @error('name') !border-red-500 @enderror" type="text" id="name" name="name" required maxlength="255" value="{{ old('name', $product->name ?? '') }}">
+                    <input class="input-field @error('name') !border-red-500 @enderror" type="text" id="name" name="name" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}">
                     <x-input-error field="name" />
                 </div>
 
                 {{-- description --}}
                 <div>
                     <label class="form-label" for="description">Product Description:</label>
-                    <textarea class="input-field @error('description') !border-red-500 @enderror" id="description" name="description" maxlength="2000" rows="5">{{ old('description', $product->description ?? '') }}</textarea>
+                    <textarea class="input-field @error('description') !border-red-500 @enderror" id="description" name="description" maxlength="2000" rows="5" placeholder="Describe the product's design, feel, and key features...">{{ old('description', $product->description ?? '') }}</textarea>
                     <x-input-error field="description" />
                 </div>
 
@@ -43,7 +43,7 @@
                             <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error($dim) !border-red-500 @enderror"
                                 type="number" id="{{ $dim }}" name="{{ $dim }}"
                                 min="0" max="100000"
-                                value="{{ old($dim, $product->$dim ?? '') }}" placeholder="{{ucfirst($dim[0])}}:">
+                                value="{{ old($dim, $product->$dim ?? '') }}" placeholder="e.g. 800">
                             <x-input-error field="{{ $dim }}" />
                         </div>
                         @endforeach
@@ -51,7 +51,7 @@
                         {{-- weight --}}
                         <div class="flex flex-col flex-1">
                             <label class="text-sm text-gray-500 mb-1" for="weight">Weight (kg):</label>
-                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error('weight') !border-red-500 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="WT:">
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error('weight') !border-red-500 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5">
                             <x-input-error field="weight" />
                         </div>
                     </div>
@@ -111,14 +111,14 @@
 
                 <div class="flex-1">
                     <label class="form-label" for="price">Price (kr)</label>
-                    <input class="input-field @error('price') !border-red-500 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" value="{{ old('price', $product->price ?? '') }}">
+                    <input class="input-field @error('price') !border-red-500 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" placeholder="e.g. 4999" value="{{ old('price', $product->price ?? '') }}">
                     <x-input-error field="price" />
                 </div>
 
-                <div class="flex-1">
+                <!-- <div class="flex-1">
                     <label class="form-label" for="discount">Discount</label>
                     <input class="input-field" type="number" id="discount" name="discount">
-                </div>
+                </div> -->
 
             </div>
         </x-form-section>
