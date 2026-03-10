@@ -17,5 +17,7 @@
     <div class="flex-1">
         @yield('content')
     </div>
+
+    <x-toast />
 </body>
 </html>

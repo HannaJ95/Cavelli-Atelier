@@ -95,7 +95,10 @@ class ProductController extends Controller
         $product->colors()->sync($request->input('colors', []));
         $product->materials()->sync($request->input('materials', []));
 
-        return redirect()->route('products.create')->with('success', 'Product added!');
+        return redirect()->route('products.create')
+            ->with('success', 'Product added!')
+            ->with('success_link', route('products.edit', $product))
+            ->with('success_link_label', $product->name);
     }
 
     public function edit(Product $product)
@@ -132,6 +135,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Product deleted!');
+        return redirect()->route('products.index')->with('success', 'Product deleted!')->with('toast_type', 'deleted');
     }
 }
