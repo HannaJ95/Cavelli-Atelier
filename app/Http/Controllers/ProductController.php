@@ -16,6 +16,15 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        if ($request->has('search') && trim($request->search) === '') {
+            $hasOtherFilters = collect(['type', 'price', 'material', 'sort', 'status'])
+                ->contains(fn($filter) => $request->filled($filter));
+        
+            if (!$hasOtherFilters) {
+                return redirect()->route('products.index')
+                    ->withErrors(['search' => 'You have to add something in your search.']);
+            }
+        }
 
         $query = Product::with('materials', 'colors', 'productType');
 

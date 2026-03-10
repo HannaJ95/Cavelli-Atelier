@@ -16,12 +16,23 @@
 
                 {{-- Top bar: search, status, sort, add button --}}
                 <div class="flex flex-wrap items-center gap-3 lg:gap-4 mb-6">
-                    <div class="relative grow min-w-[160px]">
+                    <div class="relative grow min-w-40">
                         <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </span>
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search product..." maxlength="50" aria-label="Search products by name"
-                            class="w-full bg-gray-200 rounded-full py-2.5 pl-11 pr-12 text-sm font-medium" />
+                        <input type="text" name="search" value="{{ request('search') }}" 
+                            placeholder="Search product..." maxlength="50" 
+                            aria-label="Search products by name"
+                            aria-describedby="search-error"
+                            class="w-full bg-gray-200 rounded-full py-2.5 pl-11 pr-12 text-sm font-medium
+                                {{ $errors->has('search') ? 'ring-2 ring-red-400' : '' }}" />
+
+                        {{-- Error message --}}
+                        @error('search')
+                            <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-500 font-medium whitespace-nowrap">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
 
                     <div class="relative inline-block shrink-0">
