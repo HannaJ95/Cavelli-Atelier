@@ -7,12 +7,14 @@
         {{-- breadcrumbs --}}
         <x-breadcrumbs :links="[
             ['label' => 'Overview', 'url' => route('dashboard')],
-            ['label' => 'Products', 'url' => route('products.index')],
+            ['label' => $editMode ? 'Edit products' : 'Products', 'url' => $editMode ? route('products.index') : route('products.edit-mode')]
         ]" />
 
         <div class="bg-gray-100 border border-gray-300 shadow-sm rounded-2xl p-6 lg:p-10 m-4 lg:m-10 mb-px">
             <form method="GET" action="{{ route('products.index') }}" aria-label="Filter products">
-                <h1 class="font-semibold text-lg p-4">Products</h1>
+                <h1 class="font-semibold text-lg p-4">
+                    {{ $editMode ? 'Edit' : 'Products' }}
+                </h1>
 
                 {{-- Top bar: search, status, sort, add button --}}
                 <div class="flex flex-wrap items-center gap-3 lg:gap-4 mb-6">
@@ -135,7 +137,7 @@
         {{-- Products list --}}
         <div class="p-4 lg:p-10" aria-label="List of products matching the selected filters">
             @forelse ($products as $product)
-                <x-product-card :product="$product" />
+                <x-product-card :product="$product" :editMode="$editMode" />
             @empty
                 <div class="text-center p-20 bg-white rounded-2xl border border-gray-200">
                     <p class="text-gray-500 italic">No furniture matches your search. Try adjusting the filters!</p>
