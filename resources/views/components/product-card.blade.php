@@ -1,4 +1,4 @@
-@props(['product'])
+@props(['product', 'editMode' => false])
 
 <article class="relative flex flex-col lg:flex-row bg-gray-100 border border-gray-300 rounded-2xl shadow-sm mb-4 overflow-hidden min-w-0">
 
@@ -96,6 +96,7 @@
             <p class="uppercase-text">Edit</p>
             <i class="fa fa-edit text-2xl lg:text-3xl" aria-hidden="true"></i>
         </a>
+        @if ($editMode)
             <button onclick="document.getElementById('confirm-delete-modal').showModal()"
                     type="submit" class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
                     aria-label="Delete product: {{ $product->name }}">
@@ -105,8 +106,9 @@
             <x-confirm-delete-modal
                 item="{{ $product->name }}"
                 table="products"
-                action="{{ route('products.destroy', $product) }}" 
+                action="{{ route('products.destroy', $product) }}"
             />
+        @endif
     </div>
 
 </article>

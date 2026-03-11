@@ -21,7 +21,7 @@
             <div class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3">
                 <a href="{{ route('products.index') }}" class="text-base lg:text-lg text-gray-800 hover:underline">All products</a>
                 <a href="{{ route('products.create') }}" class="text-base lg:text-lg text-gray-800 hover:underline">New product</a>
-                <a href="{{ route('products.store') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a>
+                <a href="{{ route('products.edit-mode') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
             </div>
         </div>
     </nav>
-    <form method="POST" action="{{ route('logout') }}" class="m-0">
+    <form method="POST" action="{{ route('logout') }}" class="m-0 mt-auto">
         @csrf
         <button type="submit" class="bg-gray-300 hover:bg-gray-400 text-gray-900 px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer">
             Logout

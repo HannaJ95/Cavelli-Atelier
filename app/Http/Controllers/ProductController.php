@@ -64,6 +64,7 @@ class ProductController extends Controller
             'products' => $products,
             'types' => $types,
             'materials' => $materials,
+            'editMode' => request()->routeIs('products.edit-mode'),
         ]);
     }
 
