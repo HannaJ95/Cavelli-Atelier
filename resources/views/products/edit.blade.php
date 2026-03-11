@@ -17,7 +17,7 @@
         <h1 class="font-semibold text-lg">Edit Product</h1>
         <div class="flex gap-3">
             <button type="button" onclick="document.getElementById('confirm-delete-modal').showModal()"
-                class="btn-danger">
+                class="btn-danger" aria-haspopup="dialog">
                 Delete Product
             </button>
             <button form="update-form" type="submit"
