@@ -96,16 +96,17 @@
             <p class="uppercase-text">Edit</p>
             <i class="fa fa-edit text-2xl lg:text-3xl" aria-hidden="true"></i>
         </a>
-        <form action="{{ route('products.destroy', $product->id) }}" method="POST"
-              onsubmit="return confirm('Delete this product?')">
-            @csrf
-            @method('DELETE')
-            <button type="button" class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
+            <button onclick="document.getElementById('confirm-delete-modal').showModal()"
+                    type="submit" class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
                     aria-label="Delete product: {{ $product->name }}">
                 <p class="uppercase-text">Delete</p>
                 <i class="fa fa-trash text-2xl lg:text-3xl" aria-hidden="true"></i>
             </button>
-        </form>
+            <x-confirm-delete-modal
+                item="{{ $product->name }}"
+                table="products"
+                action="{{ route('products.destroy', $product) }}" 
+            />
     </div>
 
 </article>

@@ -29,9 +29,9 @@
 
                         {{-- Error message --}}
                         @error('search')
-                            <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-500 font-medium whitespace-nowrap">
-                                {{ $message }}
-                            </p>
+                        <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-500 font-medium whitespace-nowrap">
+                            {{ $message }}
+                        </p>
                         @enderror
                     </div>
 
