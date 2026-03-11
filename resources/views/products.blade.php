@@ -35,29 +35,27 @@
                         @enderror
                     </div>
 
-                    <div class="relative inline-block shrink-0">
-                        <select name="status" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
-                        aria-label="Filter products by status">
-                            <option value="">Show: All products</option>
-                            <option value="active"   {{ request('status') == 'active'   ? 'selected' : '' }}>Show: Active only</option>
-                            <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Show: Inactive only</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-700">
-                            <i class="fa fa-chevron-down text-sm" aria-hidden="true"></i>
-                        </div>
-                    </div>
+                    <x-filter-dropdown 
+                        name="status"
+                        ariaLabel="Filter products by status"
+                        defaultLabel="Show: All products"
+                        :options="[
+                            'active' => 'Show: Active only',
+                            'inactive' => 'Show: Inactive only',
+                            
+                        ]" 
+                    />
 
-                    <div class="relative inline-block shrink-0" >
-                        <select name="sort" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
-                        aria-label="Sort products by date">
-                            <option value="">Sort by: Default</option>
-                            <option value="newest" {{ request('sort') == 'newest' ? 'selected' : '' }}>Sort by: Newest</option>
-                            <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>Sort by: Oldest</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-700">
-                            <i class="fa fa-chevron-down text-sm"></i>
-                        </div>
-                    </div>
+                    <x-filter-dropdown 
+                        name="sort"
+                        ariaLabel="Sort products by date"
+                        defaultLabel="Sort by: Default"
+                        :options="[
+                            'newest' => 'Sort by: Newest',
+                            'oldest' => 'Sort by: Oldest',
+                        ]" 
+                    />
+
 
                     <a href="{{ route('products.create') }}" role="button" 
                         aria-label="Add a new product"
@@ -70,38 +68,28 @@
 
                 {{-- Filter row: wraps to new lines at 200% zoom --}}
                 <div class="flex flex-wrap gap-4 lg:gap-6 items-end" aria-label="Additional product filters: type, price, material">
-                    <div class="flex flex-col gap-2">
-                        <label class="font-bold text-gray-800 text-sm ml-4">Product type</label>
-                        <div class="relative">
-                            <select name="type" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
-                                aria-label="Filter products by type">
-                                <option value="">Show: All types</option>
-                                @foreach ($types as $type)
-                                    <option value="{{ $type->id }}" {{ request('type') == $type->id ? 'selected' : '' }}>
-                                        Show: {{ $type->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-700">
-                                <i class="fa fa-chevron-down text-sm"></i>
-                            </div>
-                        </div>
-                    </div>
+                  
+                    <x-filter-dropdown 
+                        name="type"
+                        label="Product type"
+                        aria-label="Filter products by type"
+                        defaultLabel="All types"
+                        prefix="Show"
+                        :options="$types->pluck('name', 'id')" 
+                    />
 
-                    <div class="flex flex-col gap-2">
-                        <label class="font-bold text-gray-800 text-sm ml-4">Price</label>
-                        <div class="relative">
-                            <select name="price" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
-                            aria-label="Sort products by price">
-                                <option value="">Sort: Default</option>
-                                <option value="low"  {{ request('price') == 'low'  ? 'selected' : '' }}>Sort: Low to High</option>
-                                <option value="high" {{ request('price') == 'high' ? 'selected' : '' }}>Sort: High to Low</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-700">
-                                <i class="fa fa-chevron-down text-sm"></i>
-                            </div>
-                        </div>
-                    </div>
+
+                    <x-filter-dropdown 
+                        name="price"
+                        label="Price"
+                        aria-label="Sort products by price"
+                        defaultLabel="Default"
+                        prefix="Sort"
+                        :options="[
+                            'low' => 'Low to High',
+                            'high' => 'High to Low',
+                        ]" 
+                    />
 
                     <div class="flex flex-col gap-2">
                         <label class="font-bold text-gray-800 text-sm ml-4">Material</label>
