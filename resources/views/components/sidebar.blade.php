@@ -21,7 +21,7 @@
             <div class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3">
                 <a href="{{ route('products.index') }}" class="text-base lg:text-lg text-gray-800 hover:underline">All products</a>
                 <a href="{{ route('products.create') }}" class="text-base lg:text-lg text-gray-800 hover:underline">New product</a>
-                <a href="{{ route('products.store') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a>
+                <a href="{{ route('products.edit-mode') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a>
             </div>
         </div>
 

@@ -19,4 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class)->except(['show']);
     Route::resource('colors', ColorController::class)->except(['show']);
     Route::resource('materials', MaterialController::class)->except(['show']);
+
+    Route::get('products/edit-mode', [ProductController::class, 'index'])
+    ->name('products.edit-mode');
+
 });
