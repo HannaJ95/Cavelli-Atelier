@@ -14,8 +14,9 @@ class MaterialSeeder extends Seeder
     public function run(): void
     {
         $materials = [
-            'Oak', 'Walnut', 'Pine', 'Steel',
-            'Glass', 'Velvet', 'Linen', 'Leather', 'Rattan', 'Marble',
+            'Oak', 'Walnut', 'Pine', 'Steel', 'Glass',
+            'Velvet', 'Linen', 'Leather', 'Rattan', 'Marble',
+            'Brass', 'Concrete', 'Wool', 'Ceramic',
         ];
 
         foreach ($materials as $name) {
