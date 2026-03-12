@@ -62,16 +62,18 @@
                             <p class="uppercase-text">Edit</p>
                             <i class="fa fa-edit text-xl lg:text-3xl" aria-hidden="true"></i>
                         </button>
-                        <form action="{{ route($routeName, $item['id']) }}" method="POST"
-                              onsubmit="return confirm('Delete this {{ $mode }}?')">
-                            @csrf
-                            @method('DELETE')
-                            <button class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
+                            <button type="submit" 
+                                    onclick="document.getElementById('confirm-delete-modal').showModal()"
+                                    class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
                                     aria-label="Delete {{ $mode }}: {{ $item->name }}">
                                 <p class="uppercase-text">Delete</p>
                                 <i class="fa fa-trash text-xl lg:text-3xl" aria-hidden="true"></i>
                             </button>
-                        </form>
+                            <x-confirm-delete-modal
+                                item="{{ $item->name }}"
+                                table="{{ $mode }}s"
+                                action="{{ route($routeName, $item->id) }}"
+                            />
                     </div>
 
                 </div>
