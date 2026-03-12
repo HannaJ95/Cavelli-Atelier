@@ -90,28 +90,30 @@ Make sure you have the following installed:
 
 8. **Run migrations and seed the database**
    ```bash
-   php artisan migrate --seed
+   php artisan migrate:fresh --seed
    ```
    This creates all tables and populates the database with:
    - 14 colors and 14 materials
    - 4 product types (Sofa, Chair, Table, Bed)
    - 20 named furniture products with randomised dimensions, prices, and timestamps
 
-9. **Build frontend assets**
-   ```bash
-   npm run build
-   ```
-   Or for development with hot reload:
-   ```bash
-   npm run dev
-   ```
+9. **Start the development servers**
 
-10. **Start the development server**
+    You need **two separate terminal windows** — one for the frontend build process and one for the Laravel server.
+    
+    **Terminal 1 — Frontend (Vite):**
+    ```bash
+    npm run dev
+    ```
+    
+    **Terminal 2 — Backend (Laravel):**
     ```bash
     php artisan serve
     ```
+    
+    Both must run simultaneously for hot reload and development to work properly.
 
-11. **Open the application**
+10. **Open the application**
 
     Visit [http://localhost:8000](http://localhost:8000) in your browser.
 
