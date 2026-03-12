@@ -10,13 +10,13 @@
     <nav class="flex flex-col gap-5 lg:gap-8" aria-label="Primary navigation">
         <ul class="flex flex-col gap-5 lg:gap-8 list-none m-0 p-0">
             <li>
-                <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer">
+                <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 p-2 transition-colors cursor-pointer">
                     Overview
                 </a>
             </li>
 
             <li>
-                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
+                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 p-2 transition-colors cursor-pointer"
                     aria-expanded="false" aria-controls="products-menu">
                     Products
                     <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
@@ -29,7 +29,7 @@
             </li>
 
             <li>
-                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
+                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 p-2 transition-colors cursor-pointer"
                     aria-expanded="false" aria-controls="attributes-menu">
                     Attributes
                     <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
