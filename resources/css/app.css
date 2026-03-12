@@ -30,7 +30,7 @@
     @apply bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-full transition-colors cursor-pointer;
 }
 .btn-danger {
-    @apply bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-full transition-colors;
+    @apply bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-full transition-colors cursor-pointer;
 }
 
 .uppercase-text {
