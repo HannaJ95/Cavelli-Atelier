@@ -85,6 +85,35 @@
     {{-- RIGHT COLUMN --}}
     <div class="flex flex-col gap-10 flex-[2] min-w-56">
 
+        {{-- SECTION: Attrubutes --}}
+        
+        {{-- Materials multi-select --}}
+        <x-form-section title="Attributes">
+            <div class="flex flex-col gap-2">
+                <div>
+                    <x-checkbox-dropdown 
+                        label="Materials" 
+                        name="materials"
+                        :items="$materials->pluck('name', 'id')" 
+                        :selected="$editing ? $product->materials->pluck('id')->toArray() : []"
+                        placeholder="Select materials"
+                    />
+                </div>
+
+                {{-- Colors multi-select --}}
+                <div class="mt-4">
+                    <x-checkbox-dropdown 
+                        label="Colors" 
+                        name="colors"
+                        :items="$colors->pluck('name', 'id')" 
+                        :selected="$editing ? $product->colors->pluck('id')->toArray() : []" 
+                        placeholder="Select colors"
+                    />
+
+                </div>
+            </div>
+        </x-form-section>
+
         {{-- SECTION: Dimensions --}}
         <x-form-section title="Dimensions and Weight">
             <div class="flex flex-col gap-5">
@@ -118,35 +147,6 @@
 
                 
                 
-            </div>
-        </x-form-section>
-
-        
-
-        {{-- Materials multi-select --}}
-        <x-form-section title="Attributes">
-            <div class="flex flex-col gap-2">
-                <div>
-                    <x-checkbox-dropdown 
-                        label="Materials" 
-                        name="materials"
-                        :items="$materials->pluck('name', 'id')" 
-                        :selected="$editing ? $product->materials->pluck('id')->toArray() : []"
-                        {{-- placeholder="Select materials..."  --}}
-                    />
-                </div>
-
-                {{-- Colors multi-select --}}
-                <div class="mt-4">
-                    <x-checkbox-dropdown 
-                        label="Colors" 
-                        name="colors"
-                        :items="$colors->pluck('name', 'id')" 
-                        :selected="$editing ? $product->colors->pluck('id')->toArray() : []" 
-                        placeholder="Select colors"
-                    />
-
-                </div>
             </div>
         </x-form-section>
 
