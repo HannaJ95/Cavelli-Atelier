@@ -69,7 +69,7 @@
             <x-card-grid
                 :items="$materials"
                 mode="material"
-                :columns="3"
+                :columns="2"
                 :columns2="2"
             />
         </div>

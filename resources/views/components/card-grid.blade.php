@@ -7,9 +7,9 @@
 
 @php
     $gridCols = match((int) $columns) {
-        1       => 'lg:grid-cols-1',
-        3       => 'lg:grid-cols-3',
-        default => 'lg:grid-cols-2',
+        1       => 'xl:grid-cols-1',
+        3       => 'xl:grid-cols-3',
+        default => 'xl:grid-cols-2',
     };
 
     $routeName = \Illuminate\Support\Str::plural($mode) . '.destroy';
@@ -40,7 +40,7 @@
                 <div class="flex flex-row items-start flex-1 min-w-0 gap-4 lg:gap-8">
 
                     {{-- Name --}}
-                    <div class="min-w-0 shrink-0">
+                    <div class="min-w-0 overflow-hidden">
                         <p class="uppercase-text">
                             {{ $mode === 'color' ? 'Color Name' : 'Material Name' }}
                         </p>
@@ -49,7 +49,7 @@
 
                     {{-- Hex code (color mode only) --}}
                     @if ($mode === 'color')
-                        <div class="min-w-0 shrink-0">
+                        <div class="min-w-0 overflow-hidden">
                             <p class="uppercase-text">Hex Code</p>
                             <p class="font-bold text-gray-500 text-sm lg:text-lg t-0">{{ $item->hex_code }}</p>
                         </div>
@@ -57,11 +57,6 @@
 
                     {{-- Actions pushed to the far right --}}
                     <div class="flex items-start gap-2 lg:gap-4 ml-auto shrink-0">
-                        <button type="button" class="text-gray-400 hover:text-primary transition-colors cursor-pointer text-center"
-                                aria-label="Edit {{ $mode }}: {{ $item->name }}">
-                            <p class="uppercase-text">Edit</p>
-                            <i class="fa fa-edit text-xl lg:text-3xl" aria-hidden="true"></i>
-                        </button>
                             <button type="submit" 
                                     onclick="document.getElementById('confirm-delete-modal').showModal()"
                                     class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"

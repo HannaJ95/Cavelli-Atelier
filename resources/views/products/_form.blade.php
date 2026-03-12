@@ -101,7 +101,8 @@
                         name="category_id"
                         label="Product Category *"
                         aria-label="Select product category"
-                        prefix="" 
+                        ariaDescribedBy="category_id-error"
+                        required=true
                         defaultLabel="Select category"
                         :selected="old('category_id', $product->productType->category_id ?? '')"
                         :options="$categories->pluck('name', 'id')" 
@@ -125,6 +126,8 @@
                         name="product_type_id"
                         label="Product Sub-Category *"
                         aria-label="Select product sub-category"
+                        ariaDescribedBy="product_type_id-error"
+                        required=true
                         defaultLabel="Select type"
                         :selected="old('product_type_id', $product->product_type_id ?? '')"
                         :options="$productTypes->pluck('name', 'id')" 
