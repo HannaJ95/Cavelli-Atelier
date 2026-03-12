@@ -116,7 +116,7 @@
                         aria-label="Filter products by material"
                         defaultLabel="All"
                         prefix="Show by"
-                        :options="$types->pluck('name', 'id')" 
+                        :options="$materials->pluck('name', 'id')" 
                     />
                     <button type="submit" aria-label="Apply filters"
                         class="btn-primary">
