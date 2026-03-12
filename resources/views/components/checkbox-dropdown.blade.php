@@ -9,7 +9,7 @@
 
 <fieldset class="flex flex-col gap-2">
     @if($label)
-        <legend class="font-bold text-gray-800 text-sm ml-4">{{ $label }}</legend>
+        <legend class="form-label">{{ $label }}</legend>
     @endif
 
     <details class="relative w-full group checkbox-dropdown">

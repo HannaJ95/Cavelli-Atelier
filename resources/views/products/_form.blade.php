@@ -18,27 +18,16 @@
 
                 {{-- description --}}
                 <div>
-                    <label class="form-label whitespace-nowrap" for="description">Product Description:</label>
+                    <label class="form-label whitespace-nowrap" for="description">Product Description</label>
                     <textarea class="input-field @error('description') !border-red-600 @enderror" id="description" name="description" maxlength="2000" rows="5" placeholder="Describe the product's design, feel, and key features..." aria-describedby="description-error">{{ old('description', $product->description ?? '') }}</textarea>
                     <x-input-error field="description" />
                 </div>
-
             </div>
         </x-form-section>
 
         {{-- SECTION: Category --}}
         <x-form-section title="Category">
                 <div>
-                    {{-- <label class="form-label" for="category_id">Product Category:</label>
-                    <select class="@error('category_id') !border-red-600 @enderror" id="category_id" name="category_id" required aria-describedby="category_id-error">
-                        <option value="">-- Select category --</option>
-                        @foreach ($categories as $category)
-                        <option value="{{ $category->id }}"
-                            {{ old('category_id', $product->productType->category_id ?? '') == $category->id ? 'selected' : '' }}>
-                            {{ $category->name }}
-                        </option>
-                        @endforeach
-                    </select> --}}
                     <x-filter-dropdown 
                         name="category_id"
                         label="Product Category *"
@@ -53,17 +42,6 @@
                 </div>
 
                 <div class="mt-4">
-                    {{-- <label class="form-label" for="product_type_id">Product Sub-Category:</label>
-                    <select class="@error('product_type_id') !border-red-600 @enderror" id="product_type_id" name="product_type_id" required aria-describedby="product_type_id-error">
-                        <option value="">-- Select type --</option>
-                        @foreach ($productTypes as $type)
-                        <option value="{{ $type->id }}"
-                            {{ old('product_type_id', $product->product_type_id ?? '') == $type->id ? 'selected' : '' }}>
-                            {{ $type->name }}
-                        </option>
-                        @endforeach
-                    </select> --}}
-
                     <x-filter-dropdown 
                         name="product_type_id"
                         label="Product Sub-Category *"
@@ -76,10 +54,7 @@
                     />  
                     <x-input-error field="product_type_id" />
                 </div>
-        </x-form-section>
-
-        
-
+        </x-form-section>  
     </div>
 
     {{-- RIGHT COLUMN --}}
@@ -109,7 +84,6 @@
                         :selected="$editing ? $product->colors->pluck('id')->toArray() : []" 
                         placeholder="Select colors"
                     />
-
                 </div>
             </div>
         </x-form-section>
@@ -119,13 +93,13 @@
             <div class="flex flex-col gap-5">
 
                 <fieldset>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-4">
 
                         {{-- height width length --}}
                         @foreach (['height', 'width', 'length'] as $dim)
                         <div class="flex flex-col flex-1">
                             <label class="form-label whitespace-nowrap" for="{{ $dim }}">
-                                {{ ucfirst($dim) }} (mm):
+                                {{ ucfirst($dim) }} (mm)
                             </label>
                             <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error($dim) !border-red-600 @enderror"
                                 type="number" id="{{ $dim }}" name="{{ $dim }}"
@@ -137,16 +111,13 @@
 
                         {{-- weight --}}
                         <div class="flex flex-col flex-1">
-                            <label class="form-label whitespace-nowrap" for="weight">Weight (kg):</label>
+                            <label class="form-label whitespace-nowrap" for="weight">Weight (kg)</label>
                             <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error('weight') !border-red-600 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
 
                             <x-input-error field="weight" />
                         </div>
                     </div>
                 </fieldset>
-
-                
-                
             </div>
         </x-form-section>
 
@@ -154,15 +125,12 @@
         {{-- SECTION: Pricing --}}
         <x-form-section title="Pricing">
             <div class="flex gap-4">
-
                 <div class="flex-1">
                     <label class="form-label" for="price">Price (kr) *</label>
                     <input class="input-field @error('price') !border-red-600 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" placeholder="e.g. 4999" value="{{ old('price', $product->price ?? '') }}" aria-describedby="price-error">
                     <x-input-error field="price" />
                 </div>
-                
             </div>
         </x-form-section>
-
     </div>
 </div>

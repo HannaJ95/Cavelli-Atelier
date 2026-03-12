@@ -17,8 +17,7 @@
 
 /*** VIEW: create ***/
 .form-label {
-    @apply font-bold text-gray-800 text-sm ml-4;
-    
+    @apply font-bold text-gray-800 text-sm ml-4 mb-1.5 block;
 }
 .input-field {
     @apply w-full border border-gray-200 rounded-lg px-3 py-2 bg-gray-50
