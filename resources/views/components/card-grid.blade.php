@@ -57,11 +57,11 @@
 
                     {{-- Actions pushed to the far right --}}
                     <div class="flex items-start gap-2 lg:gap-4 ml-auto shrink-0">
-                        <button type="button" class="text-gray-400 hover:text-[#8eb88e] transition-colors cursor-pointer text-center"
+                        {{-- <button type="button" class="text-gray-400 hover:text-[#8eb88e] transition-colors cursor-pointer text-center"
                                 aria-label="Edit {{ $mode }}: {{ $item->name }}">
                             <p class="uppercase-text">Edit</p>
                             <i class="fa fa-edit text-xl lg:text-3xl" aria-hidden="true"></i>
-                        </button>
+                        </button> --}}
                             <button type="submit" 
                                     onclick="document.getElementById('confirm-delete-modal').showModal()"
                                     class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
