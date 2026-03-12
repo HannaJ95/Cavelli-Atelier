@@ -39,7 +39,7 @@
                             <label class="form-label" for="{{ $dim }}">
                                 {{ ucfirst($dim) }} (mm):
                             </label>
-                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error($dim) !border-red-600 @enderror"
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error($dim) !border-red-600 @enderror"
                                 type="number" id="{{ $dim }}" name="{{ $dim }}"
                                 min="0" max="100000"
                                 value="{{ old($dim, $product->$dim ?? '') }}" placeholder="e.g. 800" aria-describedby="{{ $dim }}-error">
@@ -50,7 +50,8 @@
                         {{-- weight --}}
                         <div class="flex flex-col flex-1">
                             <label class="form-label" for="weight">Weight (kg):</label>
-                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error('weight') !border-red-600 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error('weight') !border-red-600 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
+
                             <x-input-error field="weight" />
                         </div>
                     </div>

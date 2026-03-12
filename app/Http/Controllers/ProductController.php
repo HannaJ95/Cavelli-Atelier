@@ -136,6 +136,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Product deleted!')->with('toast_type', 'deleted');
+        return redirect()->route('products.edit-mode')->with('success', 'Product deleted!')->with('toast_type', 'deleted');
     }
 }

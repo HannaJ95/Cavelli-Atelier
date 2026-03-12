@@ -4,6 +4,7 @@
 
 
 @section('content')
+<main id="main-content" class="overflow-auto">
 
     {{-- breadcrumbs --}}
     <x-breadcrumbs :links="[
@@ -11,7 +12,7 @@
         ['label' => 'Products', 'url' => route('products.index')],
         ['label' => 'Add New Product'],
     ]" />
-        
+
     <form method="POST" action="{{ route('products.store') }}">
         @csrf
 
@@ -25,4 +26,5 @@
         @include('products._form')
     </form>
 
+</main>
 @endsection

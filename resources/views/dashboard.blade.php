@@ -3,7 +3,7 @@
 @section('title', 'Dashboard - Cavelli Atelier')
 
 @section('content')
-<main class="flex min-h-screen">
+<main id="main-content" class="flex min-h-screen">
     <section class="flex-1 bg-gray-50 overflow-auto">
         <div class="p-10">
             @include('errors')

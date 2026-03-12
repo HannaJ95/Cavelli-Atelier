@@ -8,7 +8,7 @@
     aria-live="polite">
 
     {{-- Icon --}}
-    <i class="fa fa-check-circle {{ $deleted ? 'text-gray-800' : 'text-brand' }} text-lg mt-0.5 shrink-0" aria-hidden="true"></i>
+    <i class="fa {{ $deleted ? 'fa-trash' : 'fa-check-circle' }} {{ $deleted ? 'text-gray-800' : 'text-brand' }} text-lg mt-0.5 shrink-0" aria-hidden="true"></i>
 
     {{-- Content --}}
     <div class="flex-1 min-w-0">
@@ -39,11 +39,19 @@
         setTimeout(() => toast.remove(), 500);
     }
 
-    setTimeout(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
         const toast = document.getElementById('toast');
+        toast.style.transition = 'none';
         toast.style.opacity = '1';
         toast.style.transform = 'translateY(0)';
-    }, 50);
+    } else {
+        setTimeout(() => {
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+        }, 50);
+    }
 
     setTimeout(dismissToast, 4000);
 </script>

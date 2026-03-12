@@ -3,7 +3,7 @@
 @section('title', 'Colors - Cavelli Atelier')
 
 @section('content')
-    <main class="flex-1 bg-gray-50 overflow-auto">
+    <main id="main-content" class="flex-1 bg-gray-50 overflow-auto">
 
         {{-- Breadcrumbs --}}
         <x-breadcrumbs :links="[
@@ -15,12 +15,12 @@
             <form method="GET" action="{{ route('colors.index') }}" aria-label="Filter colors">
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="font-semibold text-lg p-4">Colors</h1>
-                    <a href="" role="button" aria-label="Add a new color" class="btn-primary">
+                    <a href="" aria-label="Add a new color" class="btn-primary">
                         <span class="text-xl leading-none">+</span> Add new color
                     </a>
                 </div>
 
-                <hr class="border-gray-300 -mx-6 mb-6" arila-hidden="true">
+                <hr class="border-gray-300 -mx-6 mb-6" aria-hidden="true">
 
                 <div class="flex flex-wrap items-center gap-3 lg:gap-4 mb-6">
                     <div class="relative grow min-w-40">
@@ -56,7 +56,7 @@
                         Apply Filters
                     </button> --}}
 
-                    <a href="{{ route('colors.index') }}" role="button" aria-label="Reset filters"
+                    <a href="{{ route('colors.index') }}" aria-label="Reset filters"
                         class="shrink-0 text-sm text-gray-500 hover:text-gray-700 underline self-center">
                         Reset
                     </a>

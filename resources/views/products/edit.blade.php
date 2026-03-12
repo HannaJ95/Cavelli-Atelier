@@ -3,6 +3,7 @@
 @section('title', 'Edit Product - Cavelli Atelier')
 
 @section('content')
+<main id="main-content" class="overflow-auto">
 
     {{-- breadcrumbs --}}
     <x-breadcrumbs :links="[
@@ -38,4 +39,5 @@
         table="products"
         action="{{ route('products.destroy', $product) }}" />
 
+</main>
 @endsection

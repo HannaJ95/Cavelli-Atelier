@@ -1,8 +1,10 @@
 @props(['item', 'table', 'action'])
 
-<div>
-<dialog id="confirm-delete-modal" class="rounded-2xl shadow-xl p-8 w-full max-w-md backdrop:bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-    <h2 class="text-lg font-semibold mb-2">Delete {{ $item }}?</h2>
+<dialog id="confirm-delete-modal"
+    aria-labelledby="modal-title"
+    aria-modal="true"
+    class="rounded-2xl shadow-xl p-8 w-full max-w-md backdrop:bg-black/50 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h2 id="modal-title" class="text-lg font-semibold mb-2">Delete {{ $item }}?</h2>
     <p class="text-sm text-gray-500 mb-6">Are you sure you want to delete <span class="font-medium text-gray-800">{{ $item }}</span> from {{ $table }}? This action cannot be undone.</p>
     <div class="flex justify-end gap-3">
         <button type="button"

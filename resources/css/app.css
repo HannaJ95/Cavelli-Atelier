@@ -44,3 +44,7 @@
 .product-text-small {
     @apply font-medium text-gray-700 text-sm lg:text-base;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .transition-transform, .transition-all, .transition-colors { transition: none !important; }
+}

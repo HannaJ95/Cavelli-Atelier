@@ -8,34 +8,38 @@
     </div>
 
     <nav class="flex flex-col gap-5 lg:gap-8" aria-label="Primary navigation">
-        <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer">
-            Overview
-        </a>
+        <ul class="flex flex-col gap-5 lg:gap-8 list-none m-0 p-0">
+            <li>
+                <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer">
+                    Overview
+                </a>
+            </li>
 
-        <div>
-            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
-                aria-expanded="false" aria-controls="products-menu">
-                Products
-                <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
-            </button>
-            <div class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3">
-                <a href="{{ route('products.index') }}" class="text-base lg:text-lg text-gray-800 hover:underline">All products</a>
-                <a href="{{ route('products.create') }}" class="text-base lg:text-lg text-gray-800 hover:underline">New product</a>
-                <a href="{{ route('products.edit-mode') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a>
-            </div>
-        </div>
+            <li>
+                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
+                    aria-expanded="false" aria-controls="products-menu">
+                    Products
+                    <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
+                </button>
+                <ul id="products-menu" class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3 list-none m-0 p-0">
+                    <li><a href="{{ route('products.index') }}" class="text-base lg:text-lg text-gray-800 hover:underline">All products</a></li>
+                    <li><a href="{{ route('products.create') }}" class="text-base lg:text-lg text-gray-800 hover:underline">New product</a></li>
+                    <li><a href="{{ route('products.edit-mode') }}" class="text-base lg:text-lg text-gray-800 hover:underline">Edit product</a></li>
+                </ul>
+            </li>
 
-        <div>
-            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
-                aria-expanded="false" aria-controls="attributes-menu">
-                Attributes
-                <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
-            </button>
-            <div class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3 text-gray-800">
-                <a href="{{ route('colors.index') }}" class="text-base lg:text-lg hover:underline">Colors</a>
-                <a href="{{ route('materials.index') }}" class="text-base lg:text-lg hover:underline">Materials</a>
-            </div>
-        </div>
+            <li>
+                <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
+                    aria-expanded="false" aria-controls="attributes-menu">
+                    Attributes
+                    <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
+                </button>
+                <ul id="attributes-menu" class="sub-menu hidden mt-3 ml-4 flex flex-col gap-3 list-none m-0 p-0 text-gray-800">
+                    <li><a href="{{ route('colors.index') }}" class="text-base lg:text-lg hover:underline">Colors</a></li>
+                    <li><a href="{{ route('materials.index') }}" class="text-base lg:text-lg hover:underline">Materials</a></li>
+                </ul>
+            </li>
+        </ul>
     </nav>
     <form method="POST" action="{{ route('logout') }}" class="m-0 mt-auto">
         @csrf
@@ -52,6 +56,7 @@
             const icon = button.querySelector('.fa-chevron-down');
             menu.classList.toggle('hidden');
             icon.classList.toggle('rotate-180');
+            button.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
         });
     });
 </script>

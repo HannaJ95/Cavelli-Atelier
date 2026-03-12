@@ -3,7 +3,7 @@
 @section('title', 'Products - Cavelli Atelier')
 
 @section('content')
-    <main class="flex-1 bg-gray-50 overflow-auto">
+    <main id="main-content" class="flex-1 bg-gray-50 overflow-auto">
         {{-- breadcrumbs --}}
         <x-breadcrumbs :links="[
             ['label' => 'Overview', 'url' => route('dashboard')],
@@ -59,14 +59,14 @@
                     />
 
 
-                    <a href="{{ route('products.create') }}" role="button" 
+                    <a href="{{ route('products.create') }}"
                         aria-label="Add a new product"
                         class="btn-primary">
                         <span class="text-xl leading-none">+</span> Add new product
                     </a>
                 </div>
 
-                <hr class="border-gray-300 -mx-6 mb-6" arila-hidden="true">
+                <hr class="border-gray-300 -mx-6 mb-6" aria-hidden="true">
 
                 {{-- Filter row: wraps to new lines at 200% zoom --}}
                 <div class="flex flex-wrap gap-4 lg:gap-6 items-end" aria-label="Additional product filters: type, price, material">
@@ -122,7 +122,7 @@
                         class="btn-primary">
                         Apply Filters
                     </button>
-                    <a href="{{ route('products.index') }}" role="button" aria-label="Reset filters"
+                    <a href="{{ route('products.index') }}" aria-label="Reset filters"
                         class="shrink-0 text-sm text-gray-500 hover:text-gray-700 underline self-center">
                         Reset
                     </a>
@@ -140,9 +140,9 @@
                 </div>
             @endforelse
 
-            <div class="mt-8 p-4 bg-white rounded-xl shadow-sm border border-gray-200">
+            <nav aria-label="Pagination" class="mt-8 p-4 bg-white rounded-xl shadow-sm border border-gray-200">
                 {{ $products->links() }}
-            </div>
+            </nav>
         </div>
     </main>
 @endsection

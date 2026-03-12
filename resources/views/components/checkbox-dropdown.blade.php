@@ -27,13 +27,13 @@
     </details>
 </fieldset> --}}
 
-<div class="flex flex-col gap-2">
+<fieldset class="flex flex-col gap-2">
     @if($label)
-        <label class="font-bold text-gray-800 text-sm ml-4">{{ $label }}</label>
+        <legend class="font-bold text-gray-800 text-sm ml-4">{{ $label }}</legend>
     @endif
 
     <details class="relative w-full group">
-        <summary class="list-none appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer w-full flex justify-between items-center focus:outline-none">
+        <summary class="list-none appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer w-full flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1">
             <span>
                 @if(count($selected) > 0)
                     {{-- This version handles both keyed arrays and object collections --}}
@@ -50,7 +50,7 @@
 
         <div class="absolute mt-1 w-full bg-gray-200 rounded-md shadow-lg z-10 p-4 max-h-60 overflow-auto">
             @foreach ($items as $id => $name_item)
-                <label class="items-center gap-3 px-3 py-2 hover:bg-white rounded-lg cursor-pointer transition-colors">
+                <label class="flex items-center gap-3 px-3 py-2 hover:bg-white rounded-lg cursor-pointer transition-colors">
                     <input
                         type="checkbox" 
                         name="{{ $name }}[]" 
@@ -62,4 +62,4 @@
             @endforeach
         </div>
     </details>
-</div>
+</fieldset>
