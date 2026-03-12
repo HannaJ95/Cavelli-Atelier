@@ -57,7 +57,7 @@
 
                     {{-- Actions pushed to the far right --}}
                     <div class="flex items-start gap-2 lg:gap-4 ml-auto shrink-0">
-                            <button type="submit" 
+                            <button type="button"
                                     onclick="document.getElementById('confirm-delete-modal').showModal()"
                                     class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"
                                     aria-label="Delete {{ $mode }}: {{ $item->name }}">
