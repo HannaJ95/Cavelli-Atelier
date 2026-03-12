@@ -10,7 +10,7 @@
         <h1 class="text-xl font-bold text-gray-800 mb-2">Method not allowed</h1>
         <p class="text-gray-500 text-sm mb-8">This action is not allowed on the requested page.</p>
         <a href="{{ route('login') }}"
-            class="bg-[#8eb88e] hover:bg-[#7a9e7a] text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors">
+            class="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full text-sm font-medium transition-colors">
             Back
         </a>
     </div>

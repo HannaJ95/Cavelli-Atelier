@@ -12,14 +12,14 @@
                 {{-- product name --}}
                 <div>
                     <label class="form-label" for="name">Product Name *</label>
-                    <input class="input-field @error('name') !border-red-500 @enderror" type="text" id="name" name="name" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}" aria-describedby="name-error">
+                    <input class="input-field @error('name') !border-red-600 @enderror" type="text" id="name" name="name" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}" aria-describedby="name-error">
                     <x-input-error field="name" />
                 </div>
 
                 {{-- description --}}
                 <div>
                     <label class="form-label" for="description">Product Description:</label>
-                    <textarea class="input-field @error('description') !border-red-500 @enderror" id="description" name="description" maxlength="2000" rows="5" placeholder="Describe the product's design, feel, and key features..." aria-describedby="description-error">{{ old('description', $product->description ?? '') }}</textarea>
+                    <textarea class="input-field @error('description') !border-red-600 @enderror" id="description" name="description" maxlength="2000" rows="5" placeholder="Describe the product's design, feel, and key features..." aria-describedby="description-error">{{ old('description', $product->description ?? '') }}</textarea>
                     <x-input-error field="description" />
                 </div>
 
@@ -37,10 +37,10 @@
                         {{-- height width length --}}
                         @foreach (['height', 'width', 'length'] as $dim)
                         <div class="flex flex-col flex-1">
-                            <label class="text-sm text-gray-600 mb-1" for="{{ $dim }}">
+                            <label class="text-sm text-gray-700 mb-1" for="{{ $dim }}">
                                 {{ ucfirst($dim) }} (mm):
                             </label>
-                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error($dim) !border-red-500 @enderror"
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error($dim) !border-red-600 @enderror"
                                 type="number" id="{{ $dim }}" name="{{ $dim }}"
                                 min="0" max="100000"
                                 value="{{ old($dim, $product->$dim ?? '') }}" placeholder="e.g. 800" aria-describedby="{{ $dim }}-error">
@@ -50,8 +50,8 @@
 
                         {{-- weight --}}
                         <div class="flex flex-col flex-1">
-                            <label class="text-sm text-gray-600 mb-1" for="weight">Weight (kg):</label>
-                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error('weight') !border-red-500 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
+                            <label class="text-sm text-gray-700 mb-1" for="weight">Weight (kg):</label>
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 @error('weight') !border-red-600 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
                             <x-input-error field="weight" />
                         </div>
                     </div>
@@ -88,7 +88,7 @@
         <x-form-section title="Category">
                 <div>
                     {{-- <label class="form-label" for="category_id">Product Category:</label>
-                    <select class="@error('category_id') !border-red-500 @enderror" id="category_id" name="category_id" required aria-describedby="category_id-error">
+                    <select class="@error('category_id') !border-red-600 @enderror" id="category_id" name="category_id" required aria-describedby="category_id-error">
                         <option value="">-- Select category --</option>
                         @foreach ($categories as $category)
                         <option value="{{ $category->id }}"
@@ -111,7 +111,7 @@
 
                 <div class="mt-4">
                     {{-- <label class="form-label" for="product_type_id">Product Sub-Category:</label>
-                    <select class="@error('product_type_id') !border-red-500 @enderror" id="product_type_id" name="product_type_id" required aria-describedby="product_type_id-error">
+                    <select class="@error('product_type_id') !border-red-600 @enderror" id="product_type_id" name="product_type_id" required aria-describedby="product_type_id-error">
                         <option value="">-- Select type --</option>
                         @foreach ($productTypes as $type)
                         <option value="{{ $type->id }}"
@@ -139,7 +139,7 @@
 
                 <div class="flex-1">
                     <label class="form-label" for="price">Price (kr) *</label>
-                    <input class="input-field @error('price') !border-red-500 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" placeholder="e.g. 4999" value="{{ old('price', $product->price ?? '') }}" aria-describedby="price-error">
+                    <input class="input-field @error('price') !border-red-600 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" placeholder="e.g. 4999" value="{{ old('price', $product->price ?? '') }}" aria-describedby="price-error">
                     <x-input-error field="price" />
                 </div>
 

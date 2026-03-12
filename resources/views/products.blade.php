@@ -27,11 +27,11 @@
                             aria-label="Search products by name"
                             aria-describedby="search-error"
                             class="w-full bg-gray-200 rounded-full py-2.5 pl-11 pr-12 text-sm font-medium
-                                {{ $errors->has('search') ? 'ring-2 ring-red-400' : '' }}" />
+                                {{ $errors->has('search') ? 'ring-2 ring-red-500' : '' }}" />
 
                         {{-- Error message --}}
                         @error('search')
-                        <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-500 font-medium whitespace-nowrap">
+                        <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-600 font-medium whitespace-nowrap">
                             {{ $message }}
                         </p>
                         @enderror

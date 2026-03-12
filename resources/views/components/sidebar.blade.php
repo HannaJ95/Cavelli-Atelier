@@ -1,6 +1,6 @@
 @props(['sidebar'])
 
-<aside class="fixed top-0 left-0 h-screen min-h-screen w-64 bg-[#a8c69f] p-5 lg:p-8 flex flex-col gap-6 lg:gap-10 overflow-y-auto" aria-label="Main navigation">
+<aside class="fixed top-0 left-0 h-screen min-h-screen w-64 bg-sidebar p-5 lg:p-8 flex flex-col gap-6 lg:gap-10 overflow-y-auto" aria-label="Main navigation">
     <div class="border-b border-gray-800/20 pb-4">
         <h1 class="text-xl lg:text-3xl font-serif tracking-tight text-gray-900 mt-4">
             Cavelli Atelier
@@ -8,12 +8,12 @@
     </div>
 
     <nav class="flex flex-col gap-5 lg:gap-8" aria-label="Primary navigation">
-        <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:text-white transition-colors cursor-pointer">
+        <a href="{{ route('dashboard')}}" class="text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer">
             Overview
         </a>
 
         <div>
-            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:text-white transition-colors cursor-pointer"
+            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
                 aria-expanded="false" aria-controls="products-menu">
                 Products
                 <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>
@@ -26,7 +26,7 @@
         </div>
 
         <div>
-            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:text-white transition-colors cursor-pointer"
+            <button class="menu-toggle flex items-center justify-between w-full text-lg lg:text-2xl font-medium text-gray-900 hover:bg-primary hover:text-white rounded-lg px-2 -mx-2 transition-colors cursor-pointer"
                 aria-expanded="false" aria-controls="attributes-menu">
                 Attributes
                 <i class="fas fa-chevron-down text-sm ml-2 transition-transform duration-200" aria-hidden="true"></i>

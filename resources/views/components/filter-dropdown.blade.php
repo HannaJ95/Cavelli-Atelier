@@ -26,7 +26,7 @@
             </option>
     
             @foreach($options as $value => $display)
-                <option class="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" 
+                <option class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-brand"
                     value="{{ $value }}" 
                     {{ (old($name) == $value || $selected == $value) ? 'selected' : '' }}>
                     {{ $prefix ? $prefix . ': ' : '' }}{{ $display }}

@@ -32,17 +32,17 @@
                             aria-label="Search colors by name"
                             aria-describedby="search-error"
                             class="w-full bg-gray-200 rounded-full py-2.5 pl-11 pr-12 text-sm font-medium
-                                   {{ $errors->has('search') ? 'ring-2 ring-red-400' : '' }}" />
+                                   {{ $errors->has('search') ? 'ring-2 ring-red-500' : '' }}" />
 
                         @error('search')
-                            <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-500 font-medium whitespace-nowrap">
+                            <p id="search-error" role="alert" class="absolute -bottom-5 left-4 text-xs text-red-600 font-medium whitespace-nowrap">
                                 {{ $message }}
                             </p>
                         @enderror
                     </div>
 
                     {{-- <div class="relative inline-block shrink-0">
-                        <select name="sort" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-6 pr-12 text-gray-600 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-[#8eb88e]"
+                        <select name="sort" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-6 pr-12 text-gray-600 text-sm font-medium cursor-pointer focus:ring-2 focus:ring-brand"
                             aria-label="Sort colors by name">
                             <option value="name_asc"  {{ request('sort') == 'name_asc'  ? 'selected' : '' }}>Name: A-Z</option>
                             <option value="name_desc" {{ request('sort') == 'name_desc' ? 'selected' : '' }}>Name: Z-A</option>

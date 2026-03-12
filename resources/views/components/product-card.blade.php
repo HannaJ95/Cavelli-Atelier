@@ -21,7 +21,7 @@
     <div class="flex-1 min-w-0 p-5 lg:p-6">
 
         {{-- Top row: Name + ID + Price --}}
-        <div class="flex flex-wrap items-start gap-x-8 gap-y-2 mb-4 pb-4 border-b border-gray-200">
+        <div class="flex flex-wrap items-start gap-x-8 gap-y-2 mb-4 pb-4 border-b border-gray-300">
             <div>
                 <p class="uppercase-text">Product Name</p>
                 <h2 class="product-text-medium">{{ $product->name }}</h2>
@@ -91,14 +91,14 @@
     {{-- Right: Actions panel --}}
     <div class="flex lg:flex-col items-center justify-center gap-6 lg:gap-8
                 p-4 lg:px-6 lg:py-6 shrink-0">
-        <a href="{{ route('products.edit', $product) }}" class="text-gray-400 hover:text-[#8eb88e] transition-colors cursor-pointer text-center"
+        <a href="{{ route('products.edit', $product) }}" class="text-gray-400 hover:text-primary transition-colors cursor-pointer text-center"
            aria-label="Edit product: {{ $product->name }}">
             <p class="uppercase-text">Edit</p>
             <i class="fa fa-edit text-2xl lg:text-3xl" aria-hidden="true"></i>
         </a>
         @if ($editMode)
             <button onclick="document.getElementById('confirm-delete-modal').showModal()"
-                    type="submit" class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer text-center"
+                    type="submit" class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"
                     aria-label="Delete product: {{ $product->name }}">
                 <p class="uppercase-text">Delete</p>
                 <i class="fa fa-trash text-2xl lg:text-3xl" aria-hidden="true"></i>
