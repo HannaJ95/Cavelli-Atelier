@@ -12,7 +12,7 @@
                 {{-- product name --}}
                 <div>
                     <label class="form-label" for="name">Product Name *</label>
-                    <input class="input-field @error('name') !border-red-600 @enderror" type="text" id="name" name="name" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}" aria-describedby="name-error">
+                    <input class="input-field @error('name') !border-red-600 @enderror" type="text" id="name" name="name" autocomplete="off" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}" aria-describedby="name-error">
                     <x-input-error field="name" />
                 </div>
 

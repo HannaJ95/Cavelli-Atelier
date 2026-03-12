@@ -20,6 +20,8 @@
     <div class="relative w-full group">
         
         <select
+            id="{{ $name }}-select"
+            name="{{ $name }}"
             class="list-none appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer w-full flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-brand"
             aria-label="{{ $ariaLabel }}"
             @if($ariaDescribedBy) aria-describedby="{{ $ariaDescribedBy }}" @endif
