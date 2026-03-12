@@ -23,7 +23,7 @@
         {{-- Top row: Name + ID + Price --}}
         <div class="flex flex-wrap items-start gap-x-8 gap-y-2 mb-4 pb-4 border-b border-gray-200">
             <div>
-                <p class="uppercase-text">Name</p>
+                <p class="uppercase-text">Product Name</p>
                 <h2 class="product-text-medium">{{ $product->name }}</h2>
             </div>
             <div>
