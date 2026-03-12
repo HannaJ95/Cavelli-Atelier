@@ -93,7 +93,7 @@
                         ]" 
                     />
 
-                    <div class="flex flex-col gap-2">
+                    {{-- <div class="flex flex-col gap-2">
                         <label class="font-bold text-gray-800 text-sm ml-4">Material</label>
                         <div class="relative">
                             <select name="material" class="appearance-none bg-gray-200 rounded-full py-2.5 pl-4 pr-12 text-gray-600 text-sm font-medium cursor-pointer"
@@ -109,7 +109,15 @@
                                 <i class="fa fa-chevron-down text-sm"></i>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
+                    <x-filter-dropdown 
+                        name="material"
+                        label="Material"
+                        aria-label="Filter products by material"
+                        defaultLabel="All"
+                        prefix="Show by"
+                        :options="$types->pluck('name', 'id')" 
+                    />
                     <button type="submit" aria-label="Apply filters"
                         class="btn-primary">
                         Apply Filters
