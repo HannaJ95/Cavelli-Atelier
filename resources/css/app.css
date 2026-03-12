@@ -45,6 +45,10 @@
     @apply font-medium text-gray-700 text-sm lg:text-base;
 }
 
+.intro-h1 {
+    @apply font-semibold text-lg p-4;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .transition-transform, .transition-all, .transition-colors { transition: none !important; }
 }

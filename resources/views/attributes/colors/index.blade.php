@@ -14,7 +14,7 @@
         <div class="bg-gray-100 border border-gray-300 shadow-sm rounded-2xl p-6 lg:p-10 m-4 lg:m-10 mb-px">
             <form method="GET" action="{{ route('colors.index') }}" aria-label="Filter colors">
                 <div class="flex justify-between items-center mb-6">
-                    <h1 class="font-semibold text-lg p-4">Colors</h1>
+                    <h1 class="intro-h1">Colors</h1>
                     <a href="" aria-label="Add a new color" class="btn-primary">
                         <span class="text-xl leading-none">+</span> Add new color
                     </a>
