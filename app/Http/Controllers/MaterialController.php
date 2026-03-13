@@ -18,7 +18,7 @@ class MaterialController extends Controller
                 ->withErrors(['search' => 'You have to add something in your search.']);
         }
 
-        $query = Material::query();
+        $query = Material::withCount('products');
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -94,6 +94,11 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
+        if ($material->products()->exists()) {
+            return redirect()->route('materials.index')
+                ->withErrors(['delete' => 'Cannot delete "' . $material->name . '" — it is linked to ' . $material->products()->count() . ' product(s).']);
+        }
+
         $material->delete();
 
         return redirect()->route('materials.index')

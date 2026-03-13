@@ -18,19 +18,12 @@ class ColorController extends Controller
                 ->withErrors(['search' => 'You have to add something in your search.']);
         }
 
-        $query = Color::query();
+        $query = Color::withCount('products');
 
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where('name', 'LIKE', "%{$search}%");
         }
-
-        // if ($request->filled('sort')) {
-        //     $direction = $request->sort === 'name_asc' ? 'asc' : 'desc';
-        //     $query->orderBy('name', $direction);
-        // } else {
-        //     $query->orderBy('name', 'asc');
-        // }
 
         $colors = $query->paginate(12)->withQueryString();
 
@@ -96,6 +89,11 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
+        if ($color->products()->exists()) {
+            return redirect()->route('colors.index')
+                ->withErrors(['delete' => 'Cannot delete "' . $color->name . '" — it is linked to ' . $color->products()->count() . ' product(s).']);
+        }
+
         $color->delete();
 
         return redirect()->route('colors.index')

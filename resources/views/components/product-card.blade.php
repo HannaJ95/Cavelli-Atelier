@@ -99,8 +99,8 @@
             <i class="fa fa-edit text-2xl lg:text-3xl" aria-hidden="true"></i>
         </a>
         @if ($editMode)
-            <button onclick="document.getElementById('confirm-delete-modal').showModal()"
-                    type="submit" class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"
+            <button onclick="document.getElementById('confirm-delete-modal-{{ $product->id }}').showModal()"
+                    type="button" class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"
                     aria-label="Delete product: {{ $product->name }}">
                 <p class="uppercase-text">Delete</p>
                 <i class="fa fa-trash text-2xl lg:text-3xl" aria-hidden="true"></i>
@@ -109,6 +109,7 @@
                 item="{{ $product->name }}"
                 table="products"
                 action="{{ route('products.destroy', $product) }}"
+                modalId="confirm-delete-modal-{{ $product->id }}"
             />
         @endif
     </div>

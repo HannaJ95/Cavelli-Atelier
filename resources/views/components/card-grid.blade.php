@@ -58,7 +58,7 @@
                     {{-- Actions pushed to the far right --}}
                     <div class="flex items-start gap-2 lg:gap-4 ml-auto shrink-0">
                             <button type="button"
-                                    onclick="document.getElementById('confirm-delete-modal').showModal()"
+                                    onclick="document.getElementById('confirm-delete-modal-{{ $item->id }}').showModal()"
                                     class="text-gray-400 hover:text-red-600 transition-colors cursor-pointer text-center"
                                     aria-label="Delete {{ $mode }}: {{ $item->name }}">
                                 <p class="uppercase-text">Delete</p>
@@ -68,6 +68,8 @@
                                 item="{{ $item->name }}"
                                 table="{{ $mode }}s"
                                 action="{{ route($routeName, $item->id) }}"
+                                modalId="confirm-delete-modal-{{ $item->id }}"
+                                :productCount="$item->products_count ?? 0"
                             />
                     </div>
 
