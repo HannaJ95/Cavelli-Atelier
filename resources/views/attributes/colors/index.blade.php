@@ -17,6 +17,8 @@
                     <h1 class="intro-h1">Colors</h1>
                 </div>
 
+                <hr class="border-gray-300 -mx-6 mb-6" aria-hidden="true">
+
                 <div class="flex flex-wrap items-center gap-3 lg:gap-4 mb-6">
                     <div class="relative grow min-w-40">
                         <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">

@@ -12,9 +12,18 @@
 
         <div class="bg-gray-100 border border-gray-300 shadow-sm rounded-2xl p-6 lg:p-10 m-4 lg:m-10 mb-px">
             <form method="GET" action="{{ route('products.index') }}" aria-label="Filter products">
-                <h1 class="intro-h1">
-                    {{ $editMode ? 'Edit' : 'Products' }}
-                </h1>
+                <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+                    <h1 class="intro-h1">
+                        {{ $editMode ? 'Edit' : 'Products' }}
+                    </h1>
+                        <a href="{{ route('products.create') }}"
+                        aria-label="Add a new product"
+                        class="btn-primary">
+                        <span class="text-xl leading-none">+</span> Add new product
+                    </a>
+                </div>
+
+                <hr class="border-gray-300 -mx-6 mb-6" aria-hidden="true">
 
                 {{-- Top bar: search, status, sort, add button --}}
                 <div class="flex flex-wrap items-center gap-3 lg:gap-4 mb-6">
@@ -35,6 +44,7 @@
                             {{ $message }}
                         </p>
                         @enderror
+
                     </div>
 
                     <!-- <x-filter-dropdown 
@@ -58,18 +68,12 @@
                         ]" 
                     />
 
-
-                    <a href="{{ route('products.create') }}"
-                        aria-label="Add a new product"
-                        class="btn-primary">
-                        <span class="text-xl leading-none">+</span> Add new product
-                    </a>
                 </div>
 
-                <hr class="border-gray-300 -mx-6 mb-6" aria-hidden="true">
+                
 
                 {{-- Filter row: wraps to new lines at 200% zoom --}}
-                <div class="flex flex-wrap gap-4 lg:gap-6 items-end" aria-label="Additional product filters: type, price, material">
+                <div class="flex flex-wrap gap-4 lg:gap-6 items-end mt-5" aria-label="Additional product filters: type, price, material">
                   
                     <x-filter-dropdown 
                         name="type"
