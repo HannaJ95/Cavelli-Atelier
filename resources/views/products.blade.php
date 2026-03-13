@@ -37,7 +37,7 @@
                         @enderror
                     </div>
 
-                    {{-- <x-filter-dropdown 
+                    <!-- <x-filter-dropdown 
                         name="status"
                         ariaLabel="Filter products by status"
                         defaultLabel="Show: All products"
@@ -45,8 +45,8 @@
                             'active' => 'Show: Active only',
                             'inactive' => 'Show: Inactive only',
                             
-                        ]" 
-                    /> --}}
+                        ]" /> -->
+
 
                     <x-filter-dropdown 
                         name="sort"
