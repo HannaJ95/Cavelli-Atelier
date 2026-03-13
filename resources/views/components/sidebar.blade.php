@@ -41,6 +41,12 @@
             </li>
         </ul>
     </nav>
+    
+    <form method="POST" action="/seed" class="m-0 mt-auto">
+        @csrf
+        <button type="submit" class="btn-danger">Reset database</button>
+    </form>
+
     <form method="POST" action="{{ route('logout') }}" class="m-0 mt-auto">
         @csrf
         <button type="submit" class="bg-gray-300 hover:bg-gray-400 text-gray-900 px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer">

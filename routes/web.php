@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\SeedController;
 
 Route::view('/', 'index')->middleware('guest')->name('login');
 Route::post('login', LoginController::class);
@@ -22,5 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('products/edit-mode', [ProductController::class, 'index'])
     ->name('products.edit-mode');
+
+    Route::post('/seed', [SeedController::class, 'seed']);
 
 });
