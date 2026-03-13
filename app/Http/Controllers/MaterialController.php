@@ -25,13 +25,6 @@ class MaterialController extends Controller
             $query->where('name', 'LIKE', "%{$search}%");
         }
 
-        // if ($request->filled('sort')) {
-        //     $direction = $request->sort === 'name_asc' ? 'asc' : 'desc';
-        //     $query->orderBy('name', $direction);
-        // } else {
-        //     $query->orderBy('name', 'asc');
-        // }
-
         $materials = $query->paginate(12)->withQueryString();
 
         return view('attributes.materials.index', compact('materials'));

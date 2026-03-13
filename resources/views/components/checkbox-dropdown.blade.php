@@ -1,4 +1,3 @@
-{{-- @props(['label', 'items', 'name', 'selected' => []]) --}}
 @props([
     'name', 
     'label' => null, 

@@ -47,16 +47,6 @@
 
                     </div>
 
-                    <!-- <x-filter-dropdown 
-                        name="status"
-                        ariaLabel="Filter products by status"
-                        defaultLabel="Show: All products"
-                        :options="[
-                            'active' => 'Show: Active only',
-                            'inactive' => 'Show: Inactive only',
-                            
-                        ]" /> -->
-
 
                     <x-filter-dropdown 
                         name="sort"
