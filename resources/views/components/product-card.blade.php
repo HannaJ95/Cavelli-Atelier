@@ -28,7 +28,9 @@
             </div>
             <div>
                 <p class="uppercase-text">Price</p>
-                <p class="product-text-medium">{{ number_format($product->price) }} kr</p>
+                <p class="product-text-medium">{{ rtrim(rtrim(number_format($product->price, 2, '.', ' '), '0'), '.')
+
+ }} kr</p>
             </div>
             <div>
                 <p class="uppercase-text">Product ID</p>
