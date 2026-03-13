@@ -1,59 +1,154 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cavelli Atelier — Admin Tool
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based admin tool for managing a furniture product catalogue. Built with Laravel 12 and Tailwind CSS v4 as a school project by **Nathalie & Hanna**.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## About the Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Cavelli Atelier is a fictional high-end furniture brand. This admin tool lets staff manage the product catalogue — adding, editing, filtering, and deleting furniture items such as sofas, chairs, tables, and beds.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Features:**
 
-## Learning Laravel
+- Login-protected admin area
+- Full CRUD for products (create, read, update, delete)
+- Product filtering by type, material, price and sort order
+- Pagination on the product listing
+- Color and material attribute pages
+- Toast notifications on create, update, and delete actions
+- Accessible UI: semantic HTML, labeled forms, sufficient color contrast (WCAG AA), keyboard navigable
+- Responsive layout — works at different zoom levels
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+**Tech stack:**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Laravel 12 (PHP 8.2+)
+- Blade components
+- Tailwind CSS v4 (via Vite)
+- MySQL
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Installation
 
-### Premium Partners
+### Prerequisites
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Make sure you have the following installed:
 
-## Contributing
+- PHP 8.2+
+- Composer
+- Node.js & npm
+- MySQL
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Steps
 
-## Code of Conduct
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/HannaJ95/Cavelli-Atelier.git
+   cd Cavelli-Atelier
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-## Security Vulnerabilities
+3. **Install Node dependencies**
+   ```bash
+   npm install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+4. **Copy the environment file**
+   ```bash
+   cp .env.example .env
+   ```
 
-## License
+5. **Generate application key**
+   ```bash
+   php artisan key:generate
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. **Create the database**
+   ```bash
+   mysql -u root
+   ```
+   ```sql
+   CREATE DATABASE cavelli_atelier;
+   EXIT;
+   ```
+
+7. **Configure `.env`**
+
+   Open `.env` and update the database settings:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=cavelli_atelier
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+8. **Run migrations and seed the database**
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+   This creates all tables and populates the database with:
+   - 14 colors and 14 materials
+   - 4 product types (Sofa, Chair, Table, Bed)
+   - 20 named furniture products with randomised dimensions, prices, and timestamps
+
+9. **Start the development servers**
+
+    You need **two separate terminal windows** — one for the frontend build process and one for the Laravel server.
+    
+    **Terminal 1 — Frontend (Vite):**
+    ```bash
+    npm run dev
+    ```
+    
+    **Terminal 2 — Backend (Laravel):**
+    ```bash
+    php artisan serve
+    ```
+    
+    Both must run simultaneously for hot reload and development to work properly.
+
+10. **Open the application**
+
+    Visit [http://localhost:8000](http://localhost:8000) in your browser.
+
+---
+
+## Login
+
+```
+Email:    admin@cavelliatelier.se
+Password: Ca123!
+```
+
+---
+
+## Pages
+
+| Page | URL | Description |
+|---|---|---|
+| Login | `/` | Authentication page |
+| Dashboard | `/dashboard` | Overview / welcome |
+| Products | `/products` | Browse, filter, and paginate products |
+| Add product | `/products/create` | Create a new product |
+| Edit product | `/products/{id}/edit` | Edit an existing product |
+| Edit mode | `/products/edit-mode` | List view with delete access |
+| Colors | `/attributes/colors` | Manage color attributes |
+| Materials | `/attributes/materials` | Manage material attributes |
+
+---
+
+## Accessibility (a11y)
+
+The project implements the five required a11y guidelines:
+
+1. **Semantic HTML** — `<main>`, `<nav>`, `<aside>`, `<article>`, `<fieldset>`, `<legend>`, headings in logical order
+2. **Accessible forms** — all inputs have `<label>` elements, error messages use `role="alert"` and `aria-describedby`
+3. **Color contrast** — all text meets WCAG AA (4.5:1 minimum); buttons use `#4a7c4a` on white (4.8:1)
+4. **Not color-only** — error states use both a red border/ring and a text message; delete actions use both icon and label
+5. **Resizable text** — layout uses `rem`/Tailwind units and has been tested at 200% browser zoom

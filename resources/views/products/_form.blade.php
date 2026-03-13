@@ -1,0 +1,136 @@
+@php $editing = isset($product); @endphp
+
+<div class="flex flex-wrap gap-10 m-10 min-w-56">
+
+    {{-- LEFT COLUMN --}}
+    <div class="flex flex-col gap-10 flex-[3]">
+
+        {{-- SECTION: Name and Description --}}
+        <x-form-section title="Name and Description">
+            <div class="flex flex-col gap-5">
+
+                {{-- product name --}}
+                <div>
+                    <label class="form-label" for="name">Product Name *</label>
+                    <input class="input-field @error('name') !border-red-600 @enderror" type="text" id="name" name="name" autocomplete="off" required maxlength="255" placeholder="e.g. Milano Leather Sofa" value="{{ old('name', $product->name ?? '') }}" aria-describedby="name-error">
+                    <x-input-error field="name" />
+                </div>
+
+                {{-- description --}}
+                <div>
+                    <label class="form-label whitespace-nowrap" for="description">Product Description</label>
+                    <textarea class="input-field @error('description') !border-red-600 @enderror" id="description" name="description" maxlength="2000" rows="5" placeholder="Describe the product's design, feel, and key features..." aria-describedby="description-error">{{ old('description', $product->description ?? '') }}</textarea>
+                    <x-input-error field="description" />
+                </div>
+            </div>
+        </x-form-section>
+
+        {{-- SECTION: Category --}}
+        <x-form-section title="Category">
+                <div>
+                    <x-filter-dropdown 
+                        name="category_id"
+                        label="Product Category *"
+                        aria-label="Select product category"
+                        ariaDescribedBy="category_id-error"
+                        required=true
+                        defaultLabel="Select category"
+                        :selected="old('category_id', $product->productType->category_id ?? '')"
+                        :options="$categories->pluck('name', 'id')" 
+                    />
+                    <x-input-error field="category_id" />
+                </div>
+
+                <div class="mt-4">
+                    <x-filter-dropdown 
+                        name="product_type_id"
+                        label="Product Sub-Category *"
+                        aria-label="Select product sub-category"
+                        ariaDescribedBy="product_type_id-error"
+                        required=true
+                        defaultLabel="Select type"
+                        :selected="old('product_type_id', $product->product_type_id ?? '')"
+                        :options="$productTypes->pluck('name', 'id')" 
+                    />  
+                    <x-input-error field="product_type_id" />
+                </div>
+        </x-form-section>  
+    </div>
+
+    {{-- RIGHT COLUMN --}}
+    <div class="flex flex-col gap-10 flex-[2] min-w-56">
+
+        {{-- SECTION: Attrubutes --}}
+        
+        {{-- Materials multi-select --}}
+        <x-form-section title="Attributes">
+            <div class="flex flex-col gap-2">
+                <div>
+                    <x-checkbox-dropdown 
+                        label="Materials" 
+                        name="materials"
+                        :items="$materials->pluck('name', 'id')" 
+                        :selected="$editing ? $product->materials->pluck('id')->toArray() : []"
+                        placeholder="Select materials"
+                    />
+                </div>
+
+                {{-- Colors multi-select --}}
+                <div class="mt-4">
+                    <x-checkbox-dropdown 
+                        label="Colors" 
+                        name="colors"
+                        :items="$colors->pluck('name', 'id')" 
+                        :selected="$editing ? $product->colors->pluck('id')->toArray() : []" 
+                        placeholder="Select colors"
+                    />
+                </div>
+            </div>
+        </x-form-section>
+
+        {{-- SECTION: Dimensions --}}
+        <x-form-section title="Dimensions and Weight">
+            <div class="flex flex-col gap-5">
+
+                <fieldset>
+                    <div class="flex flex-wrap gap-4">
+
+                        {{-- height width length --}}
+                        @foreach (['height', 'width', 'length'] as $dim)
+                        <div class="flex flex-col flex-1">
+                            <label class="form-label whitespace-nowrap" for="{{ $dim }}">
+                                {{ ucfirst($dim) }} (mm)
+                            </label>
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error($dim) !border-red-600 @enderror"
+                                type="number" id="{{ $dim }}" name="{{ $dim }}"
+                                min="0" max="100000"
+                                value="{{ old($dim, $product->$dim ?? '') }}" placeholder="e.g. 800" aria-describedby="{{ $dim }}-error">
+                            <x-input-error field="{{ $dim }}" />
+                        </div>
+                        @endforeach
+
+                        {{-- weight --}}
+                        <div class="flex flex-col flex-1">
+                            <label class="form-label whitespace-nowrap" for="weight">Weight (kg)</label>
+                            <input class="border border-gray-200 rounded-lg px-3 py-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand @error('weight') !border-red-600 @enderror" type="number" id="weight" name="weight" min="0" max="999999.99" step="0.01" value="{{ old('weight', $product->weight ?? '') }}" placeholder="e.g. 12.5" aria-describedby="weight-error">
+
+                            <x-input-error field="weight" />
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </x-form-section>
+
+
+        {{-- SECTION: Pricing --}}
+        <x-form-section title="Pricing">
+            <div class="flex gap-4">
+                <div class="flex-1">
+                    <label class="form-label" for="price">Price (kr) *</label>
+                    <input class="input-field @error('price') !border-red-600 @enderror" type="number" required id="price" name="price" step="0.01" min="0.01" max="99999999.99" placeholder="e.g. 4999" value="{{ old('price', $product->price ?? '') }}" aria-describedby="price-error">
+                    <x-input-error field="price" />
+                </div>
+            </div>
+        </x-form-section>
+    </div>
+</div>

@@ -8,4 +8,46 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary:       #4a7c4a;
+    --color-primary-hover: #3a6a3a;
+    --color-brand:         #8eb88e;
+    --color-sidebar:       #a8c69f;
+}
+
+/*** VIEW: create ***/
+.form-label {
+    @apply font-bold text-gray-800 text-sm ml-4 mb-1.5 block;
+}
+.input-field {
+    @apply w-full border border-gray-200 rounded-lg px-3 py-2 bg-gray-50
+           focus:outline-none focus:ring-2 focus:ring-brand;
+}
+
+/*** BUTTONS ***/
+.btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-full transition-colors cursor-pointer;
+}
+.btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white px-4 py-2.5 rounded-full transition-colors cursor-pointer;
+}
+
+.uppercase-text {
+    @apply text-[8px] lg:text-[10px] text-gray-500 uppercase font-black tracking-widest mb-1;
+}
+
+.product-text-medium {
+    @apply font-bold text-gray-700 text-base lg:text-lg;
+}
+
+.product-text-small {
+    @apply font-medium text-gray-700 text-sm lg:text-base;
+}
+
+.intro-h1 {
+    @apply font-semibold text-lg p-4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .transition-transform, .transition-all, .transition-colors { transition: none !important; }
 }

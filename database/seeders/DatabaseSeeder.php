@@ -15,11 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+
+        $this->call([
+            CategorySeeder::class,
+            ProductTypeSeeder::class,
+            ColorSeeder::class,
+            MaterialSeeder::class,
+            ProductSeeder::class,
+        ]);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@cavelliatelier.se',
         ]);
     }
 }
